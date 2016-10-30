@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <title>Title of the document</title>
+  </head>
+
+  <body>
+    <div class="loginform">
+      <div class="logo" style="width=40px; height:40px;">
+        <img src="logo.svg" height="130px" width="130"/>
+      </div>
+      <div class="inputs">
+        <form class="form">
+          <input class="usrname" type="text" class="text" value="USERNAME" onfocus="if (this.value == 'USERNAME') {this.value = '';}" onblur="if (this.value == '') {this.value = 'USERNAME';}" ><br />
+          <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+          <div class="submit">
+            <input type="submit" onclick="myFunction()" value="Log in" >
+          </div>
+          <a href="#" class="join">Not organized yet? Join us!</a>
+        </form>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
