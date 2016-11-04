@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/landing.css">
+    <script src="./js/landing.js"></script>
+    <title>DONE</title>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="#sign" id="signin">Sign in</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </div>
+
+    <div id="sign" class="modalDialog">
+      <div>
+    		<a href="#close" title="Close" class="close">X</a>
+        <form>
+          <h3>Sign in</h3>
+          <input type="text" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+          <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><br>
+          <input type="submit" value="Submit">
+        </form>
+    	</div>
+    </div>
+
+    <div id="register" class="modalRegister modalDialog">
+      <div>
+    		<a href="#close" title="Close" class="close">X</a>
+        <form>
+          <h3>Register</h3>
+          First name<input type="text" value="John" onfocus="if (this.value == 'John') {this.value = '';}" onblur="if (this.value == '') {this.value = 'John';}"><br>
+          Last name<input type="text" value="Doe" onfocus="if (this.value == 'Doe') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Doe';}"><br>
+          E-mail<input type="text" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+          Password<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><br>
+          Repeat password<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><br>
+          By clicking Register you agree to our Terms and Conditions and our Privacy Policy.
+          <input type="submit" value="Register">
+        </form>
+    	</div>
+    </div>
+
+    <div class="presentation">
+      <div class="quote">
+        <h2>If you want to be more productive you need</h2>
+        <h2>to become the master of your minutes.</h2><br>
+        <h1>DONE will teach you how.</h1>
+        <a href="#register">GET STARTED</a>
+      </div>
+    </div>
+
+    <div class="additionalInfo">
+      <div class="card-holder">
+        <div class="card">
+          <div class="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect & Engineer</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect & Engineer</p>
+          </div>
+        </div>
+         <div class="card">
+           <div class="container">
+             <h4><b>John Doe</b></h4>
+             <p>Architect & Engineer</p>
+           </div>
+        </div>
+         <div class="card">
+           <div class="container">
+             <h4><b>John Doe</b></h4>
+             <p>Architect & Engineer</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
