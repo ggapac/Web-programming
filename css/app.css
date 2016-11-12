@@ -3,10 +3,21 @@ html {
   background-color: whitesmoke;
 }
 body {
-  width: 100%; height: 100%; margin: 0 auto; padding: 0px;
+  max-width: 960px; height: 100%; margin: 0 auto; padding: 0px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 200
+  font-weight: 200;
 }
+h3 {
+  font-weight: 200;
+  margin-left: 5px;
+}
+hr {
+  color: #333333;
+}
+ul {
+  list-style-type: none;
+}
+
 header ul {
     list-style-type: none;
     margin: 0;
@@ -19,52 +30,93 @@ header li {
 }
 header li a {
     display: block;
-    color: white;
+    color: #333333;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color:#333333;
-    border: 6px lightgrey solid;
-    border-radius: 10px;
 }
-.centered-content {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
+#active {
+  text-decoration: underline;
 }
 
-.quote a {
-  display: block;
+.add {
+  float:right;
+  background-color: #333333;
+  border: none;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
+  font-size: 18px;
+  font-weight: 500;
   text-decoration: none;
-  background-color:transparent;
-  border:1px solid white;
-  border-radius: 7px;
-  width:50%;
-}
-h1 {
-  color: white;
-  font-weight: 200;
-}
-h2 {
-  color: white;
-  font-weight: 200;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 5px;
 }
 
-.presentation {
+.edit {
+  float:right;
+  background-color: #333333;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.wrapper {
   width: 100%;
-  height: 400px;
-  background-image: url("backgro.jpg");
-  filter: grayscale(100%);
-  background-size:cover;
+  height:100%;
+  overflow: hidden;
 }
-.quote {
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 5%;
+.tags {
+  width: 20%;
+  height: 100%;
+  float: left;
+  background-color: white;
 }
+.tasks {
+  float:right;
+  width:78%;
+  height: 100%;
+  background-color: white;
+  display: inline-block;
+  overflow-y: scroll;
+}
+
+.p5 {
+  background-color: #ac3a4a;
+}
+.p4 {
+  background-color: #c44354;
+}
+.p3 {
+  background-color: #f6546a;
+}
+.p2 {
+  background-color: #f77687;
+}
+.p1 {
+  background-color: #f998a5;
+}
+
+.card {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  width:23%;
+  height:130px;
+  display: inline-flex;
+  color: white;
+
+}
+
+.container {
+  padding: 2px 16px;
+}
+
 .modalDialog {
 	position: fixed;
 	top: 0;
@@ -82,15 +134,18 @@ h2 {
 }
 .modalDialog > div {
 	width: 30%;
-  height: 280px;
+  height: 580px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
+	border-radius: 2px;
 	background: #E8E8E8;
 }
-.modalRegister > div {
-  height:550px!important;
+.modalTag > div {
+  height:200px!important;
+}
+.modalInfo > div {
+  height:280px!important;
 }
 .close {
 	background: #606061;
@@ -113,7 +168,7 @@ h2 {
 
 .close:hover { background: gray; }
 
-input[type="email"], input[type="password"], input[type="text"]{
+input[type="date"], input[type="text"], textarea, select {
    text-align:left;
    position: relative;
    width:93%;
@@ -125,6 +180,10 @@ input[type="email"], input[type="password"], input[type="text"]{
    font-weight:300;
    font-size: 16px;
 }
+select {
+  width: 100%;
+}
+
 input[type="submit"]{
 	width: 50%;
 	padding: 3%;
@@ -139,27 +198,12 @@ input[type="submit"]{
 	font-weight:300;
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin-left: 5px;
-    transition: 0.3s;
-    background-color: white;
+.tagsForNewToDo {
+  height:100px;
+  overflow-y: scroll;
+  background-color: white;
 }
 
-.container {
-    padding: 2px 16px;
-    width: 25%;
-}
-
-.additionalInfo {
-  margin-top: 10px;
-  width: 100%;
-  text-align:center;
-}
-
-.card-holder {
-  padding-top: 5%
-}
-.card-holder .card {
-  display: inline-block;
+.tasks a {
+  text-decoration: none;
 }

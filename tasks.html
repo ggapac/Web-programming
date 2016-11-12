@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <script src="./js/landing.js"></script>
+    <title>DONE</title>
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <li><a href="#register">Profile</a></li>
+        <li><a href="#register">Productivity</a></li>
+        <li><a href="#register">DONEs</a></li>
+        <li><a href="#sign" id="active">TO DOs</a></li>
+      </ul>
+    </header>
+
+    <div class="wrapper">
+
+      <div class="tags">
+        <a class ="add" href="#addTag">+</a>
+        <h3>TAGS</h3>
+
+        <ul>
+          <li><input type="checkbox" checked>All</li>
+          <li><input type="checkbox">Home</li>
+          <li><input type="checkbox">Work</li>
+        </ul>
+      </div>
+
+      <div id="addTag" class="modalDialog modalTag">
+        <div>
+      		<a href="#close" title="Close" class="close">X</a>
+          <form>
+            <h3>NEW TAG</h3>
+            TAG NAME: <input type="text">
+            <input type="submit" value="Add TAG">
+          </form>
+      	</div>
+      </div>
+
+      <div id="addToDo" class="modalDialog">
+        <div>
+      		<a href="#close" title="Close" class="close">X</a>
+          <form>
+            <h3>NEW TO DO</h3>
+            TO DO NAME: <input type="text">
+            Description:
+            <textarea rows="4" cols="45">
+            </textarea>
+            Deadline:
+            <input type="date">
+            Priority rate:
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            Tags:
+            <div class="tagsForNewToDo">
+              <input type="checkbox">Home
+              <br>
+              <input type="checkbox">Work
+              <br>
+              <input type="checkbox">Work
+              <br>
+              <input type="checkbox">Work
+              <br>
+              <input type="checkbox">Work
+              <br>
+              <input type="checkbox">Work
+              <br>
+              <input type="checkbox">Work
+            </div>
+            <input type="submit" value="Add TO DO">
+          </form>
+      	</div>
+      </div>
+
+      <div id="ToDoInfo" class="modalDialog modalInfo">
+        <div>
+          <a class = "edit" href="#edit">Edit</a>
+      		<a href="#close" title="Close" class="close">X</a>
+          <form>
+            <h3>TO DO NAME</h3>
+            <p>Description description description description description description description description description.</p>
+            <p>Deadline: 27.11.2016</p>
+            <p>Priority rate: 5</p>
+            <p>Tags: Home</p>
+            <input type="checkbox">DONE
+          </form>
+      	</div>
+      </div>
+
+
+      <div class="tasks">
+        <a class ="add" href="#addToDo">+</a>
+        <div class="dailytaks">
+          <h3>Daily N TO DOs</h3>
+          <br>
+          <a href="#ToDoInfo">
+            <div class="card p5">
+              <div class="container">
+                  <h4><b>TO DO NAME</b></h4>
+                  <p>Priority rate: 5</p>
+                  <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p5">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 5</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p5">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 5</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p5">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 5</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+        </div>
+        <br>
+        <hr>
+        <div class="othertasks">
+          <h3>Other TO DOs</h3>
+          <br>
+          <a href="#ToDoInfo">
+            <div class="card p1">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 1</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p2">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 2</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p5">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 5</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p3">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 3</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p4">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 4</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p3">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 3</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p1">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 1</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p2">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 2</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p3">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 3</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p1">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 1</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p2">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 2</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p3">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 3</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p1">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 1</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+          <a href="#ToDoInfo">
+            <div class="card p2">
+              <div class="container">
+                <h4><b>TO DO NAME</b></h4>
+                <p>Priority rate: 2</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
