@@ -3,29 +3,96 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <title>Title of the document</title>
+    <link rel="stylesheet" type="text/css" href="./css/landing.css">
+    <script src="./js/landing.js"></script>
+    <title>DONE</title>
   </head>
 
   <body>
-    <div class="loginform">
-      <div class="logo" style="width=40px; height:40px;">
-        <img src="logo.svg" height="130px" width="130"/>
+    <header class="centered-content">
+      <ul>
+        <li><a href="#sign" id="signin">Sign in</a></li>
+        <li><a href="#register">Register</a></li>
+        <li class="logo"><img src="./css/done_logo.svg" height="50px" width="130"/></li>
+      </ul>
+    </header>
+
+    <div class="centered-content">
+      <div id="sign" class="modalDialog">
+        <div>
+      		<a href="#close" title="Close" class="close">X</a>
+          <form>
+            <h3>Sign in</h3>
+            <label>E-mail</label>
+            <input type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <label>Password</label>
+            <input type="password" value="Password"><br>
+            <input type="submit" value="Submit" formaction="tasks.html">
+          </form>
+      	</div>
       </div>
-      <div class="inputs">
-        <form class="form">
-          <input class="usrname" type="text" class="text" value="USERNAME" onfocus="if (this.value == 'USERNAME') {this.value = '';}" onblur="if (this.value == '') {this.value = 'USERNAME';}" ><br />
-          <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-          <div class="submit">
-            <input type="submit" onclick="myFunction()" value="Log in" >
+
+      <div id="register" class="modalRegister modalDialog">
+        <div>
+      		<a href="#close" title="Close" class="close">X</a>
+          <form>
+            <h3>Register</h3>
+            <label>First name</label>
+            <input type="text" value="John" onfocus="if (this.value == 'John') {this.value = '';}" onblur="if (this.value == '') {this.value = 'John';}"><br>
+            <label>Last name</label>
+            <input type="text" value="Doe" onfocus="if (this.value == 'Doe') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Doe';}"><br>
+            <label>E-mail</label>
+            <input type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <label>Password</label>
+            <input type="password" id="password" onchange="checkPassword()" value="Password"><br>
+            <label>Repeat password</label>
+            <input type="password" id="repeatPassword" onkeyup="checkPassword()" value="Password"><br>
+            By clicking Register you agree to our Terms and Conditions and our Privacy Policy.
+            <input type="submit" value="Register" formaction="#sign">
+          </form>
+      	</div>
+      </div>
+
+      <div class="presentation">
+        <div class="quote">
+          <h2>If you want to be more productive you need</h2>
+          <h2>to become the master of your minutes.</h2><br>
+          <h1>DONE will teach you how.</h1>
+          <a href="#register">GET STARTED</a>
+        </div>
+      </div>
+
+      <div class="additionalInfo">
+        <div class="card-holder">
+          <div class="card">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
           </div>
-          <a href="#" class="join">Not organized yet? Join us!</a>
-        </form>
-
+          <div class="card">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+          </div>
+           <div class="card">
+             <div class="container">
+               <h4><b>John Doe</b></h4>
+               <p>Architect & Engineer</p>
+             </div>
+          </div>
+           <div class="card">
+             <div class="container">
+               <h4><b>John Doe</b></h4>
+               <p>Architect & Engineer</p>
+             </div>
+          </div>
+        </div>
       </div>
-
     </div>
 
-  </body>
 
+
+  </body>
 </html>
