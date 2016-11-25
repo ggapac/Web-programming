@@ -1,0 +1,10 @@
+todos = {
+	"todo": [
+		{
+			"name": "Web programming asignment",
+		 	"priority": 5,
+		 	"description": "Web programming homework, frontend.",
+		 	"deadline": "2012-04-23T18:25:43.511Z",
+		 	"tags": ["work"]
+		}
+]}
