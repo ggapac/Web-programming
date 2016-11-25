@@ -2,25 +2,25 @@ document.addEventListener("DOMContentLoaded", getTasks())
 
 function getTasks() {
   var request = new XMLHttpRequest();
-
-  request.onreadystatechange = function() {
-    console.log("la")
-    if (request.readyState == 4) {
-      console.log("la")
-      addTasks(JSON.parse(request.responseText));
-    }
-  };
-  request.open("GET", "http://127.0.0.1:8887/json/tasks.json");
-  request.setRequestHeader("Access-Control-Allow-Origin", "*");
-  request.send();
+	request.addEventListener("load", addTasks);
+	request.open("GET", "tasks.json");
+	request.responseType = "text";
+	request.send();
 }
 
-function addTasks(data) {
-  console.log("lala")
+function addTasks(event) {
+  tasks = JSON.parse(this.responseText);
+  var div = document.querySelector(".othertasks");
+  console.log(tasks.todos[0].name);
+
+  for(i in tasks.todos) {
+    div.innerHTML +='<a href="#ToDoInfo"><div class="card p' + tasks.todos[i].priority + '"><div class="container ellipsis"><b>'
+                  + tasks.todos[i].name + '</b><p>Priority rate: ' + tasks.todos[i].priority + '</p><input type="checkbox">DONE</div></div></a>'
+  }
 }
 
 function otherTasks() {
-  var div = document.querySelector(".othertasks");
+
   var data = new Array();
   var tasks = todos["todo"];
 

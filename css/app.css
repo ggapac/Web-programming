@@ -434,6 +434,9 @@ input[type="checkbox"]:checked ~ div, .pick:target {
   }
 
   /*modal dialogs*/
+  .modalDialog {
+    top:0;
+  }
   .modalDialog > div {
     width: 80%!important;
   }
@@ -521,6 +524,9 @@ input[type="checkbox"]:checked ~ div, .pick:target {
   }
 
   /*modal dialogs*/
+  .modalDialog {
+    top:0;
+  }
   .modalDialog > div {
     width: 70%!important;
     margin-top:5%;
