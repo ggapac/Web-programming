@@ -9,65 +9,74 @@
 
   <body>
     <header>
+      <label for="show-menu" class="show-menu"><img src="./css/done_logo.svg" class="logo1" height="50px" width="130"/></label>
+      <input type="checkbox" id="show-menu" role="button">
       <nav>
-        <ul>
-          <li><a href="#register" id="active">Profile</a></li>
-          <li><a href="#register">Productivity</a></li>
-          <li><a href="#register">DONEs</a></li>
-          <li><a href="#sign">TO DOs</a></li>
+        <a href="tasks.html"><img src="./css/done_logo.svg" class="logo" height="50px" width="130"/></a>
+        <ul id="menu">
+          <li><a href="tasks.html">TO DOs</a></li>
+          <li><a href="donetasks.html">DONEs</a></li>
+          <li><a href="productivity.html">Productivity</a></li>
+          <li><a href="profile.html" id="active">Profile</a></li>
         </ul>
       </nav>
     </header>
 
-    <div class="infoCard">
-      <a class="edit" href="#edit">Edit</a>
-      <h3>INFO</h3>
-      <div class="infoProfile">
-        <div class="profilePicture">
+    <div class="wrapper">
+      <div class="infoCard">
+        <a class="edit" href="#edit">Edit</a>
+        <h3>INFO</h3>
+        <div class="infoProfile">
+          <div class="profilePicture">
+          </div>
+          <table class="infoUser" cellpadding="5">
+            <tr>
+              <th>FIRST NAME:</th>
+              <th>John</th>
+            </tr>
+            <tr>
+              <th>LAST NAME:</th>
+              <th>Doe</th>
+            </tr>
+            <tr>
+              <th>PRODUCTIVITY POINTS:</th>
+              <th>118</th>
+            </tr>
+            <tr>
+              <th>NUMBER OF TO DOs:</th>
+              <th>11</th>
+            </tr>
+            <tr>
+              <th>NUMBER OF DONEs:</th>
+              <th>44</th>
+            </tr>
+          </table>
+          <button>Change profile picture</button>
         </div>
-        <table class="infoUser" cellpadding="5">
-          <tr>
-            <th>NAME:</th>
-            <th>John</th>
-          </tr>
-          <tr>
-            <th>SURNAME:</th>
-            <th>Doe</th>
-          </tr>
-          <tr>
-            <th>PRODUCTIVITY POINTS:</th>
-            <th>118</th>
-          </tr>
-          <tr>
-            <th>NUMBER OF TO DOs:</th>
-            <th>11</th>
-          </tr>
-          <tr>
-            <th>NUMBER OF DONEs:</th>
-            <th>44</th>
-          </tr>
-        </table>
-        <button>Change profile picture</button>
+      </div>
+
+      <div class="infoCard">
+        <a class="edit" href="#edit">Edit</a>
+        <h3>PREFERENCES</h3>
+        <div class="infoProfile">
+          <div class="choice">
+            <input type="checkbox">Let DONE pick daily tasks for you
+            <div class="pick">Number of tasks per day: <input type="text"></div>
+          </div>
+          <br>
+          <br>
+          <div class="choice">
+            <input type="checkbox">Send me e-mail reminders
+            <div class="pick">Hours before the deadline: <input type="text"></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="infoCard">
-      <a class="edit" href="#edit">Edit</a>
-      <h3>PREFERENCES</h3>
-      <div class="infoProfile">
-        <div class="choice">
-          <input type="checkbox">Let DONE pick daily tasks for you
-          <div class="pick">Number of tasks per day: <input type="text"></div>
-        </div>
-        <br>
-        <br>
-        <div class="choice">
-          <input type="checkbox">Send me e-mail reminders
-          <div class="pick">Hours before the deadline: <input type="text"></div>
-        </div>
-      </div>
-    </div>
-
+    <footer>
+      <p>© Copyright: 2016 All rights reserved |
+      Contact information: greta.gasparac@gmail.com</p>
+    </footer>
 
 
 

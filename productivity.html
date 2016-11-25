@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <script src="./js/productivity.js" defer></script>
     <title>DONE</title>
   </head>
 
-  <body>
+  <body onresize="graph()">
     <header>
+      <label for="show-menu" class="show-menu"><img src="./css/done_logo.svg" class="logo1" height="50px" width="130"/></label>
+      <input type="checkbox" id="show-menu" role="button">
       <nav>
-        <ul>
-          <li><a href="#register">Profile</a></li>
-          <li><a href="#register" id="active">Productivity</a></li>
-          <li><a href="#register">DONEs</a></li>
-          <li><a href="#sign">TO DOs</a></li>
+        <a href="tasks.html"><img src="./css/done_logo.svg" class="logo" height="50px" width="130"/></a>
+        <ul id="menu">
+          <li><a href="tasks.html">TO DOs</a></li>
+          <li><a href="donetasks.html">DONEs</a></li>
+          <li><a href="productivity.html" id="active">Productivity</a></li>
+          <li><a href="profile.html">Profile</a></li>
         </ul>
       </nav>
     </header>
 
     <div class="wrapper">
+
+      <section class="tagsmobile">
+        <label for="show-tags" class="show-tags">
+          <h3>TAGS↓</h3>
+        </label>
+        <input class="hidecheckbox" type="checkbox" id="show-tags" role="button">
+        <ul id="tags">
+          <li><input type="checkbox" checked>All</li>
+          <li><input type="checkbox">Home</li>
+          <li><input type="checkbox">Work</li>
+        </ul>
+      </section>
 
       <aside class="tags">
         <h3>TAGS</h3>
@@ -33,7 +49,8 @@
       <div class="tasks">
         <h3>STATISTICS FOR CHOSEN TAGS:</h3>
         <br>
-        <div class="graph">
+        <div class="graph" id="graph">
+          <canvas id="myCanvas" width="600" height="350"></canvas>
         </div>
         <br>
         <br>
@@ -55,6 +72,11 @@
         </div>
 
       </div>
+    </div>
+    <footer>
+      <p>© Copyright: 2016 All rights reserved |
+      Contact information: greta.gasparac@gmail.com</p>
+    </footer>
 
   </body>
 </html>

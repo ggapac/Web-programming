@@ -23,9 +23,10 @@ header ul {
     padding: 0;
     overflow: hidden;
     background-color: transparent;
+    float:right;
 }
 header li {
-    float: right;
+    float: left;
 }
 header li a {
     display: block;
@@ -48,8 +49,17 @@ button:hover {
   cursor: pointer;
 }
 
+footer {
+  height:30px;
+  padding-bottom: 20px;
+}
+
 #active {
   text-decoration: underline;
+}
+
+.logo {
+  float:left;
 }
 
 .add {
@@ -84,12 +94,14 @@ button:hover {
   height:100%;
   overflow: hidden;
 }
+
 .tags {
   width: 20%;
   height: 100%;
   float: left;
   background-color: white;
 }
+
 .tasks {
   float:right;
   width:78%;
@@ -127,18 +139,20 @@ button:hover {
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 16px 16px;
 }
 
 .modalDialog {
 	position: fixed;
-	top: 0;
+	top: -50px;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	background: rgba(0,0,0,0.8);
 	z-index: 99999;
 	opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
 	pointer-events: none;
 }
 .modalDialog:target {
@@ -184,8 +198,9 @@ button:hover {
 input[type="date"], input[type="text"], textarea, select {
    text-align:left;
    position: relative;
-   width:93%;
-   padding:3%;
+   width:100%;
+   padding-top: 15px;
+   padding-bottom: 15px;
    background: white;
    margin-bottom: 3%;
    color: #333333;
@@ -199,8 +214,8 @@ select {
 
 input[type="submit"]{
 	width: 50%;
-	padding: 3%;
-	margin-top: 8%;
+	padding:10px;
+	margin-top: 15px;
 	background: #333333;
 	color: white;
 	font-size: 16px;
@@ -213,6 +228,7 @@ input[type="submit"]{
 
 .tagsForNewToDo {
   height:100px;
+  width: 100%;
   overflow-y: scroll;
   background-color: white;
 }
@@ -244,7 +260,7 @@ input[type="submit"]{
   width: 150px;
   height: 150px;
   float:left;
-  background-color: blue;
+  background-color: whitesmoke;
 }
 
 .infoCard {
@@ -272,11 +288,11 @@ input[type="submit"]{
 }
 
 .infoCard input[type="checkbox"] ~ div, .pick:target {
-  display:none;
+  opacity:0;
 }
 
 input[type="checkbox"]:checked ~ div, .pick:target {
-	display:block;
+	opacity:1;
 }
 
 .choice {
@@ -294,6 +310,7 @@ input[type="checkbox"]:checked ~ div, .pick:target {
   opacity: 0.7;
   font-weight:300;
   font-size: 12px;
+  border-bottom: 1px solid #333333;
 }
 
 .pick {
@@ -304,7 +321,7 @@ input[type="checkbox"]:checked ~ div, .pick:target {
   width: 80%;
   height: 350px;
   margin: 0 auto;
-  background-color: red;
+  background-color: whitesmoke;
 }
 .statistics {
   padding-top: 20px;
@@ -314,4 +331,262 @@ input[type="checkbox"]:checked ~ div, .pick:target {
 .statistics table {
   width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 530px) {
+  /*menu*/
+  nav ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  nav ul li, nav li a {
+		width: 100%!important;
+	}
+  .show-menu {
+    cursor: pointer;
+		display: block!important;
+	}
+  .logo {
+    display: none;
+  }
+  .logo1 {
+    display: block!important;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  /*add button*/
+  .add {
+    font-size: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  /*tags*/
+  .tagsmobile {
+    display: block!important;
+  }
+  .tags {
+    display: none!important;
+  }
+  .tagsmobile ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  .tagsmobile ul li, .tagsmobile li a {
+		width: 100%!important;
+	}
+  .show-tags {
+    cursor: pointer;
+		display: block!important;
+	}
+
+  /*tasks*/
+  .tasks {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  h3 {
+    text-align: left!important;
+  }
+  .dailytasks {
+    float:none;
+    width: 100%;
+    margin: auto;
+  }
+  .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .card {
+    min-width: 140px;
+  }
+
+  /*productivity*/
+  .graph {
+    width: 100%;
+    height: 250px;
+  }
+  .statistics {
+    width:100%;
+  }
+  .statistics table {
+    width:100%;
+    text-align: left;
+  }
+
+  /*profile*/
+  .infoCard {
+    width: 100%;
+    display: block;
+    float: none;
+    height: 450px;
+  }
+  .infoUser {
+    width: 100%;
+  }
+
+  /*modal dialogs*/
+  .modalDialog > div {
+    width: 80%!important;
+  }
+
+  /*footer*/
+  footer {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    max-width: 960px;
+  }
+
+  /*add button*/
+  .add {
+    font-size: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  /*tags*/
+  .tagsmobile {
+    display: block!important;
+  }
+  .tags {
+    display: none!important;
+  }
+  .tagsmobile ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  .tagsmobile ul li, .tagsmobile li a {
+		width: 100%!important;
+	}
+  .show-tags {
+    cursor: pointer;
+		display: block!important;
+	}
+
+  /*tasks*/
+  .tasks {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  h3 {
+    text-align: left!important;
+  }
+  .dailytasks {
+    float:none;
+    width: 100%;
+    margin: auto;
+  }
+  .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .card {
+    min-width: 140px;
+  }
+
+  /*productivity*/
+  .graph {
+    width: 80%;
+    height: 250px;
+  }
+  .statistics {
+    width:100%;
+  }
+  .statistics table {
+    width:80%;
+    text-align: left;
+  }
+
+  /*profile*/
+  .infoCard {
+    width: 90%;
+  }
+
+  /*modal dialogs*/
+  .modalDialog > div {
+    width: 70%!important;
+    margin-top:5%;
+  }
+  .modalDialog > div {
+    height:600px;
+  }
+  input[type="date"], input[type="text"], textarea, select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  input[type="submit"] {
+    padding:10px;
+    margin-top: 15px;
+  }
+
+  /*footer*/
+  footer {
+    font-size: 12px;
+  }
+}
+
+/*mobile menu*/
+.show-menu {
+	text-decoration: none;
+	color: #fff;
+	background: whitesmoke;
+	text-align: center;
+	padding: 10px 0;
+	display: none;
+}
+
+header input[type=checkbox]{
+    display: none;
+}
+header input[type=checkbox]:checked ~ nav > #menu {
+    display: block!important;
+}
+.logo1 {
+  display:none;
+}
+.hamburger {
+  display: none;
+}
+
+/*tags mobile menu*/
+.show-tags {
+	text-decoration: none;
+	color: #333333;
+	background: whitesmoke;
+	text-align: left;
+	display: none;
+}
+.hidecheckbox {
+    display: none;
+}
+.hidecheckbox:checked ~ #tags {
+    display: block!important;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tagsmobile {
+  display: none;
 }
