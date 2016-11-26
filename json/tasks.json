@@ -1,11 +1,18 @@
-{
-	"todo": [
-		{
-			"name": "Web programming assignment",
-		 	"priority": 5,
-		 	"description": "Web programming homework, frontend.",
-		 	"deadline": "2012-04-23T18:25:43.511Z",
-		 	"tags": ["work"]
-		}
-	]
+{"todos":[
+	{
+		"id": 1,
+		"name": "Web programming assignment",
+		"priority": 5,
+		"description": "Web programming homework, frontend.",
+		"deadline": "2016-11-27T23:59:00.000Z",
+		"tags": ["work"]
+	},
+	{
+		"id": 2,
+		"name": "Intelligent Systems assignment",
+		"priority": 4,
+		"description": "Machine learning",
+		"deadline": "2016-12-04T18:25:43.511Z",
+		"tags": ["work, home"]
+	}]
 }
