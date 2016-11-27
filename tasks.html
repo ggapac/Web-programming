@@ -62,7 +62,7 @@
       <div id="addTag" class="modalDialog modalTag">
         <div>
       		<a href="#close" title="Close" class="close">X</a>
-          <form>
+          <form id="newTag" onsubmit="newTag()">
             <h3>NEW TAG</h3>
             TAG NAME: <input type="text">
             <input type="submit" value="Add TAG">
@@ -73,14 +73,14 @@
       <div id="addToDo" class="modalDialog">
         <div>
       		<a href="#close" title="Close" class="close">X</a>
-          <form>
+          <form id="newToDo" onsubmit="newTask()">
             <h3>NEW TO DO</h3>
-            TO DO NAME: <input type="text">
+            TO DO NAME: <input type="text" placeholder="Name">
             Description:
-            <textarea rows="4" cols="45">
+            <textarea rows="4" cols="45" placeholder="Description">
             </textarea>
             Deadline:
-            <input type="date">
+            <input type="date" placeholder="dd/mm/yyyy">
             Priority rate:
             <select>
               <option value="1">1</option>
@@ -120,7 +120,6 @@
               <p>Deadline: 27.11.2016</p>
               <p>Priority rate: 5</p>
               <p>Tags: Home</p>
-              <input type="checkbox">DONE
             </form>
         	</div>
       </div>
