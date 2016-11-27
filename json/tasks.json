@@ -1,6 +1,6 @@
 {"todos":[
 	{
-		"id": 1,
+		"id": 0,
 		"name": "Web programming assignment",
 		"priority": 5,
 		"description": "Web programming homework, frontend.",
@@ -8,11 +8,35 @@
 		"tags": ["work"]
 	},
 	{
-		"id": 2,
+		"id": 1,
 		"name": "Intelligent Systems assignment",
 		"priority": 4,
 		"description": "Machine learning",
 		"deadline": "2016-12-04T18:25:43.511Z",
 		"tags": ["work, home"]
+	},
+	{
+		"id": 2,
+		"name": "Go to the store",
+		"priority": 2,
+		"description": "Buy food.",
+		"deadline": "2016-12-04T18:25:43.511Z",
+		"tags": ["home"]
+	},
+	{
+		"id": 3,
+		"name": "Buy a gift for brother",
+		"priority": 3,
+		"description": "Go to sports store and buy him a tshirt?",
+		"deadline": "2016-12-04T18:25:43.511Z",
+		"tags": ["home"]
+	},
+	{
+		"id": 4,
+		"name": "Workout",
+		"priority": 3,
+		"description": "Move your ass",
+		"deadline": "2016-12-04T23:59:43.511Z",
+		"tags": ["home"]
 	}]
 }

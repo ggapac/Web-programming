@@ -19,6 +19,7 @@ ul {
 }
 header ul {
     list-style-type: none;
+    display:inline;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -52,6 +53,48 @@ button:hover {
 footer {
   height:30px;
   padding-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+}
+.drop label {
+  font-size: 16px;
+  cursor:pointer;
+  display: block;
+  color: #333333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.drop input{display:none;}
+.drop input:checked ~ ul.submenu{
+  max-height:300px;
+  transition:max-height 0.5s ease-in;
+}
+.submenu{
+  display: block!important;
+  float:none;
+  max-height:0;
+  padding:0;
+  overflow:hidden;
+  list-style-type:none;
+  background:whitesmoke;
+  transition:max-height 0.5s ease-out;
+  position:absolute;
+  min-width:100%;
+}
+
+.submenu li a {
+  display:block!important;
+  float:none;
+  color:#333333;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.submenu li a:hover {
+  text-decoration: underline;
 }
 
 #active {
@@ -102,6 +145,7 @@ footer {
   background-color: white;
 }
 
+
 .tasks {
   float:right;
   width:78%;
@@ -139,7 +183,7 @@ footer {
 }
 
 .container {
-  padding: 16px 16px;
+  padding: 20px 16px;
 }
 
 .modalDialog {
@@ -276,6 +320,8 @@ input[type="submit"]{
   margin: 0 auto;
   overflow: hidden;
 }
+
+.infoProfile th, td { padding: 5px; }
 
 .infoUser {
   float: right;

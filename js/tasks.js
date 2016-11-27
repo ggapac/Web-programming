@@ -1,9 +1,15 @@
-document.addEventListener("DOMContentLoaded", getTasks())
+document.addEventListener("DOMContentLoaded", getData())
 
-function getTasks() {
+function getData() {
   var request = new XMLHttpRequest();
 	request.addEventListener("load", addTasks);
 	request.open("GET", "./json/tasks.json");
+	request.responseType = "text";
+	request.send();
+
+  var request = new XMLHttpRequest();
+	request.addEventListener("load", addTags);
+	request.open("GET", "./json/tags.json");
 	request.responseType = "text";
 	request.send();
 }
@@ -11,15 +17,36 @@ function getTasks() {
 function addTasks(event) {
   var tasks = JSON.parse(this.responseText);
   var div = document.querySelector(".othertasks");
-  console.log(tasks.todos[0].name);
 
   for(i in tasks.todos) {
-    div.innerHTML +='<a href="#ToDoInfo" id="' + i + '" onclick=showInfo(this.id)><div class="card p' + tasks.todos[i].priority + '"><div class="container ellipsis"><b>'
-                  + tasks.todos[i].name + '</b><p>Priority rate: ' + tasks.todos[i].priority + '</p><input type="checkbox">DONE</div></div></a>'
+    div.innerHTML += '<div class="card p' + tasks.todos[i].priority + '" id="' + i + '"onclick=showInfo(this.id)><a href="#ToDoInfo"'
+                  + 'style="color:#333333; font-size:20px;"> &#9700;</a>'
+                  + '<div class="container ellipsis"><b>' + tasks.todos[i].name + '</b><p>Priority rate: '
+                  + tasks.todos[i].priority + '</p><input type="checkbox">DONE</div></div>'
   }
 }
 
+function addTags(event) {
+
+  var tags = JSON.parse(this.responseText);
+  var div = document.querySelector(".tags");
+  console.log(div)
+
+  div.innerHTML = '<a class ="add" href="#addTag">+</a><h3>TAGS</h3><ul>';
+
+  for (i in tags.tags) {
+    if (tags.tags[i].name == "All") {
+      div.innerHTML += '<li><input type="checkbox" checked>' + tags.tags[i].name + '</li>';
+    }
+    else {
+      div.innerHTML += '<li><input type="checkbox">' + tags.tags[i].name + '</li>';
+    }
+  }
+  div.innerHTML += '</ul>';
+}
+
 function showInfo(id) {
+  console.log(id);
   var idTask = id;
   var request = new XMLHttpRequest();
 	request.addEventListener("load", function() {
