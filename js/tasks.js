@@ -6,12 +6,6 @@ function getData() {
 	request.open("GET", "./json/tasks.json");
 	request.responseType = "text";
 	request.send();
-
-  var request = new XMLHttpRequest();
-	request.addEventListener("load", addTags);
-	request.open("GET", "./json/tags.json");
-	request.responseType = "text";
-	request.send();
 }
 
 function addTasks(event) {
@@ -24,25 +18,6 @@ function addTasks(event) {
                   + '<div class="container ellipsis"><b>' + tasks.todos[i].name + '</b><p>Priority rate: '
                   + tasks.todos[i].priority + '</p><input type="checkbox">DONE</div></div>'
   }
-}
-
-function addTags(event) {
-
-  var tags = JSON.parse(this.responseText);
-  var div = document.querySelector(".tags");
-  console.log(div)
-
-  div.innerHTML = '<a class ="add" href="#addTag">+</a><h3>TAGS</h3><ul>';
-
-  for (i in tags.tags) {
-    if (tags.tags[i].name == "All") {
-      div.innerHTML += '<li><input type="checkbox" checked>' + tags.tags[i].name + '</li>';
-    }
-    else {
-      div.innerHTML += '<li><input type="checkbox">' + tags.tags[i].name + '</li>';
-    }
-  }
-  div.innerHTML += '</ul>';
 }
 
 function showInfo(id) {

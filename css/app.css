@@ -83,7 +83,6 @@ label {
   background:whitesmoke;
   transition:max-height 0.5s ease-out;
   position:absolute;
-
 }
 
 .submenu li {
@@ -146,7 +145,6 @@ label {
   float: left;
   background-color: white;
 }
-
 
 .tasks {
   float:right;
@@ -467,7 +465,7 @@ input[type="checkbox"]:checked ~ div, .pick:target {
 
   /*productivity*/
   .graph {
-    width: 100%;
+    width: 100%!important;
     height: 250px;
   }
   .statistics {
