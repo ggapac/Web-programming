@@ -19,7 +19,14 @@
           <li><a href="tasks.html">TO DOs</a></li>
           <li><a href="donetasks.html" id="active">DONEs</a></li>
           <li><a href="productivity.html">Productivity</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li class="drop">
+            <input id="check02" type="checkbox" name="menu"/>
+            <label for="check02">Profile &#9662;</label>
+            <ul class="submenu">
+              <li><a href="#">View Profile</a></li>
+              <li><a href="#">Log out</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
@@ -28,7 +35,7 @@
       <section class="tagsmobile">
         <noscript>
           <label for="show-tags" class="show-tags">
-            TAGS↓
+            TAGS &#9662;
           </label>
           <input class="hidecheckbox" type="checkbox" id="show-tags">
           <ul id="tags">

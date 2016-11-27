@@ -18,7 +18,14 @@
           <li><a href="tasks.html">TO DOs</a></li>
           <li><a href="donetasks.html">DONEs</a></li>
           <li><a href="productivity.html">Productivity</a></li>
-          <li><a href="profile.html" id="active">Profile</a></li>
+          <li class="drop">
+            <input id="check02" type="checkbox" name="menu"/>
+            <label for="check02">Profile &#9662;</label>
+            <ul class="submenu">
+              <li><a href="#">View Profile</a></li>
+              <li><a href="#">Log out</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
@@ -29,7 +36,13 @@
         <h3>INFO</h3>
         <div class="infoProfile">
           <div class="profilePicture">
+            <div class="picture">
+            </div>
+            <div class="changeProfilePicture">
+              <button>Change profile picture</button>
+            </div>
           </div>
+
           <table class="infoUser">
             <tr>
               <th>FIRST NAME:</th>
@@ -52,7 +65,8 @@
               <th>44</th>
             </tr>
           </table>
-          <button>Change profile picture</button>
+          <br>
+
         </div>
       </div>
 

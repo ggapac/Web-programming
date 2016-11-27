@@ -6,6 +6,7 @@ body {
   max-width: 960px; height: 100%; margin: 0 auto; padding: 0px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 200;
+  position: relative;
 }
 h3 {
   font-weight: 200;
@@ -19,7 +20,6 @@ ul {
 }
 header ul {
     list-style-type: none;
-    display:inline;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -27,7 +27,7 @@ header ul {
     float:right;
 }
 header li {
-    float: left;
+    float:left;
 }
 header li a {
     display: block;
@@ -83,12 +83,14 @@ label {
   background:whitesmoke;
   transition:max-height 0.5s ease-out;
   position:absolute;
-  min-width:100%;
+
 }
 
+.submenu li {
+  float:none;
+}
 .submenu li a {
   display:block!important;
-  float:none;
   color:#333333;
   text-decoration:none;
   white-space:nowrap;
@@ -183,7 +185,7 @@ label {
 }
 
 .container {
-  padding: 20px 16px;
+  padding: 20px 0px 16px;
 }
 
 .modalDialog {
@@ -302,9 +304,13 @@ input[type="submit"]{
 
 .profilePicture {
   width: 150px;
-  height: 150px;
+  height: 188px;
   float:left;
   background-color: whitesmoke;
+}
+.picture {
+  width: 150px;
+  height: 150px;
 }
 
 .infoCard {
@@ -400,6 +406,10 @@ input[type="checkbox"]:checked ~ div, .pick:target {
     display: block!important;
     overflow: hidden;
     margin: 0 auto;
+  }
+
+  .drop label {
+    width:100%;
   }
 
   /*add button*/
@@ -611,6 +621,7 @@ header input[type=checkbox]{
 header input[type=checkbox]:checked ~ nav > #menu {
     display: block!important;
 }
+
 .logo1 {
   display:none;
 }
