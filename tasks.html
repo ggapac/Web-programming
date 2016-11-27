@@ -64,7 +64,7 @@
       		<a href="#close" title="Close" class="close">X</a>
           <form id="newTag" onsubmit="newTag()">
             <h3>NEW TAG</h3>
-            TAG NAME: <input type="text">
+            TAG NAME: <input type="text" required>
             <input type="submit" value="Add TAG">
           </form>
       	</div>
@@ -75,7 +75,7 @@
       		<a href="#close" title="Close" class="close">X</a>
           <form id="newToDo" onsubmit="newTask()">
             <h3>NEW TO DO</h3>
-            TO DO NAME: <input type="text" placeholder="Name">
+            TO DO NAME: <input type="text" placeholder="Name" required>
             Description:
             <textarea rows="4" cols="45" placeholder="Description">
             </textarea>
@@ -112,14 +112,51 @@
 
       <div id="ToDoInfo" class="modalDialog modalInfo">
           <div>
-            <a class = "edit" href="#edit">Edit</a>
+            <a class="edit" href="#edit" onclick="values()">Edit</a>
+        		<a href="#close" title="Close" class="close">X</a>
+            <h3>TO DO NAME</h3>
+            <p>Description description description description description description description description description.</p>
+            <p>Deadline: 27.11.2016</p>
+            <p>Priority rate: 5</p>
+            <p>Tags: Home</p>
+        	</div>
+      </div>
+      <div id="edit" class="modalDialog">
+          <div>
         		<a href="#close" title="Close" class="close">X</a>
             <form>
-              <h3>TO DO NAME</h3>
-              <p>Description description description description description description description description description.</p>
-              <p>Deadline: 27.11.2016</p>
-              <p>Priority rate: 5</p>
-              <p>Tags: Home</p>
+              <h3>EDIT</h3>
+              TO DO NAME: <input type="text">
+              Description:
+              <textarea rows="4" cols="45" placeholder="Description">
+              </textarea>
+              Deadline:
+              <input type="date" placeholder="dd/mm/yyyy">
+              Priority rate:
+              <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              Tags:
+              <div class="tagsForNewToDo">
+                <input type="checkbox">Home
+                <br>
+                <input type="checkbox">Work
+                <br>
+                <input type="checkbox">Work
+                <br>
+                <input type="checkbox">Work
+                <br>
+                <input type="checkbox">Work
+                <br>
+                <input type="checkbox">Work
+                <br>
+                <input type="checkbox">Work
+              </div>
+              <input type="submit" value="Save">
             </form>
         	</div>
       </div>
