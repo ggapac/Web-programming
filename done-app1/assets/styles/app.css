@@ -1,0 +1,653 @@
+html {
+  height:100%; width: 100%;
+  background-color: whitesmoke;
+}
+body {
+  max-width: 960px; height: 100%; margin: 0 auto; padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  position: relative;
+}
+h3 {
+  font-weight: 200;
+  margin-left: 5px;
+}
+hr {
+  color: #333333;
+}
+ul {
+  list-style-type: none;
+}
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    float:right;
+}
+header li {
+    float:left;
+}
+header li a {
+    display: block;
+    color: #333333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+button {
+  background-color: #333333;
+  color: white;
+  border: none;
+  padding: 5px 5px 5px 5px;
+  font-size: 12px;
+  font-weight: 300;
+  width: 150px;
+  margin-top: 10px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+footer {
+  height:30px;
+  padding-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+}
+.drop label {
+  font-size: 16px;
+  cursor:pointer;
+  display: block;
+  color: #333333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.drop input{display:none;}
+.drop input:checked ~ ul.submenu{
+  max-height:300px;
+  transition:max-height 0.5s ease-in;
+}
+.submenu{
+  display: block!important;
+  float:none;
+  max-height:0;
+  padding:0;
+  overflow:hidden;
+  list-style-type:none;
+  background:whitesmoke;
+  transition:max-height 0.5s ease-out;
+  position:absolute;
+}
+
+.submenu li {
+  float:none;
+}
+.submenu li a {
+  display:block!important;
+  color:#333333;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.submenu li a:hover {
+  text-decoration: underline;
+}
+
+#active {
+  text-decoration: underline;
+}
+
+.logo {
+  float:left;
+}
+
+.add {
+  float:right;
+  background-color: #333333;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 5px;
+}
+
+.edit {
+  float:right;
+  background-color: #333333;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.wrapper {
+  width: 100%;
+  height:100%;
+  overflow: hidden;
+}
+
+.tags {
+  width: 20%;
+  height: 100%;
+  float: left;
+  background-color: white;
+}
+
+.tasks {
+  float:right;
+  width:78%;
+  height: 100%;
+  background-color: white;
+  display: inline-block;
+  overflow-y: scroll;
+}
+
+.p5 {
+  background-color: #ac3a4a;
+}
+.p4 {
+  background-color: #c44354;
+}
+.p3 {
+  background-color: #f6546a;
+}
+.p2 {
+  background-color: #f77687;
+}
+.p1 {
+  background-color: #f998a5;
+}
+
+.card {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  width:23%;
+  height:130px;
+  display: inline-flex;
+  color: white;
+
+}
+
+.container {
+  padding: 20px 0px 16px;
+}
+
+.modalDialog {
+	position: fixed;
+	top: -50px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width: 30%;
+  height: 580px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 2px;
+	background: #E8E8E8;
+}
+.modalTag > div {
+  height:200px!important;
+}
+.modalInfo > div {
+  height:280px!important;
+}
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: gray; }
+
+input[type="date"], input[type="text"], textarea, select {
+   text-align:left;
+   position: relative;
+   width:100%;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   background: white;
+   margin-bottom: 5px;
+   color: #333333;
+   opacity: 0.7;
+   font-weight:300;
+   font-size: 16px;
+}
+select {
+  width: 100%;
+}
+
+input[type="submit"]{
+	width: 50%;
+	padding:10px;
+	margin-top: 15px;
+	background: #333333;
+	color: white;
+	font-size: 16px;
+  float: right;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-weight:300;
+}
+
+.tagsForNewToDo {
+  height:100px;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.tasks a {
+  text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.profilePicture {
+  width: 150px;
+  height: 188px;
+  float:left;
+  background-color: whitesmoke;
+}
+.picture {
+  width: 150px;
+  height: 150px;
+}
+
+.infoCard {
+  background-color: white;
+  width: 70%;
+  height: 260px;
+  margin: 0 auto;
+}
+
+.infoProfile {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.infoProfile th, td { padding: 5px; }
+
+.infoUser {
+  float: right;
+  overflow: hidden;
+  text-align: left;
+  width:60%;
+}
+.infoUser tr th {
+  font-weight: 300;
+}
+
+.infoCard input[type="checkbox"] ~ div, .pick:target {
+  opacity:0;
+}
+
+input[type="checkbox"]:checked ~ div, .pick:target {
+	opacity:1;
+}
+
+.choice {
+  height:50px;
+}
+
+.choice input[type="text"] {
+  text-align:left;
+  position: relative;
+  padding:3%;
+  width: 10px;
+  height: 1px;
+  background: white;
+  color: #333333;
+  opacity: 0.7;
+  font-weight:300;
+  font-size: 12px;
+  border-bottom: 1px solid #333333;
+}
+
+.pick {
+  padding-left: 20px;
+}
+
+.graph {
+  width: 80%;
+  height: 350px;
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+.statistics {
+  padding-top: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+.statistics table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 530px) {
+  /*menu*/
+  nav ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  nav ul li, nav li a {
+		width: 100%!important;
+	}
+  .show-menu {
+    cursor: pointer;
+		display: block!important;
+	}
+  .logo {
+    display: none;
+  }
+  .logo1 {
+    display: block!important;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .drop label {
+    width:100%;
+  }
+
+  /*add button*/
+  .add {
+    font-size: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  /*tags*/
+  .tagsmobile {
+    display: block!important;
+  }
+  .tags {
+    display: none!important;
+  }
+  .tagsmobile ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  .tagsmobile ul li, .tagsmobile li a {
+		width: 100%!important;
+	}
+  .show-tags {
+    cursor: pointer;
+		display: block!important;
+	}
+
+  /*tasks*/
+  .tasks {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  h3 {
+    text-align: left!important;
+  }
+  .dailytasks {
+    float:none;
+    width: 100%;
+    margin: auto;
+  }
+  .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .card {
+    min-width: 140px;
+  }
+
+  /*productivity*/
+  .graph {
+    width: 100%!important;
+    height: 250px;
+  }
+  .statistics {
+    width:100%;
+  }
+  .statistics table {
+    width:100%;
+    text-align: left;
+  }
+
+  /*profile*/
+  .infoCard {
+    width: 100%;
+    display: block;
+    float: none;
+    height: 450px;
+  }
+  .infoUser {
+    width: 100%;
+  }
+
+  /*modal dialogs*/
+  .modalDialog {
+    top:0;
+  }
+  .modalDialog > div {
+    width: 80%!important;
+  }
+
+  /*footer*/
+  footer {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    max-width: 960px;
+  }
+
+  /*add button*/
+  .add {
+    font-size: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  /*tags*/
+  .tagsmobile {
+    display: block!important;
+  }
+  .tags {
+    display: none!important;
+  }
+  .tagsmobile ul {
+		position: static;
+    display: none;
+    width:100%;
+  }
+  .tagsmobile ul li, .tagsmobile li a {
+		width: 100%!important;
+	}
+  .show-tags {
+    cursor: pointer;
+		display: block!important;
+	}
+
+  /*tasks*/
+  .tasks {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  h3 {
+    text-align: left!important;
+  }
+  .dailytasks {
+    float:none;
+    width: 100%;
+    margin: auto;
+  }
+  .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .card {
+    min-width: 140px;
+  }
+
+  /*productivity*/
+  .graph {
+    width: 80%;
+    height: 250px;
+  }
+  .statistics {
+    width:100%;
+  }
+  .statistics table {
+    width:80%;
+    text-align: left;
+  }
+
+  /*profile*/
+  .infoCard {
+    width: 90%;
+  }
+
+  /*modal dialogs*/
+  .modalDialog {
+    top:0;
+  }
+  .modalDialog > div {
+    width: 70%!important;
+    margin-top:5%;
+  }
+  .modalDialog > div {
+    height:600px;
+  }
+  input[type="date"], input[type="text"], textarea, select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  input[type="submit"] {
+    padding:10px;
+    margin-top: 15px;
+  }
+
+  /*footer*/
+  footer {
+    font-size: 12px;
+  }
+}
+
+/*mobile menu*/
+.show-menu {
+	text-decoration: none;
+	color: #fff;
+	background: whitesmoke;
+	text-align: center;
+	padding: 10px 0;
+	display: none;
+}
+
+header input[type=checkbox]{
+    display: none;
+}
+header input[type=checkbox]:checked ~ nav > #menu {
+    display: block!important;
+}
+
+.logo1 {
+  display:none;
+}
+.hamburger {
+  display: none;
+}
+
+/*tags mobile menu*/
+.show-tags {
+	text-decoration: none;
+	color: #333333;
+	background: whitesmoke;
+	text-align: left;
+	display: none;
+}
+.hidecheckbox {
+    display: none;
+}
+.hidecheckbox:checked ~ #tags {
+    display: block!important;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tagsmobile {
+  display: none;
+}

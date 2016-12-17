@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/landing.css">
+    <link rel="stylesheet" type="text/css" href="/styles/landing.css">
     <script src="./js/landing.js"></script>
     <title>DONE</title>
   </head>
@@ -13,7 +13,7 @@
       <ul>
         <li><a href="#sign" id="signin">Sign in</a></li>
         <li><a href="#register">Register</a></li>
-        <li class="logo"><img src="./css/done_logo.svg" height="50" width="130" alt=""/></li>
+        <li class="logo"><img src="/styles/done_logo.svg" height="50" width="130" alt=""/></li>
       </ul>
     </header>
 
@@ -21,7 +21,7 @@
       <div id="sign" class="modalDialog">
         <div>
       		<a href="#close" title="Close" class="close">X</a>
-          <form method='POST' action="/login">
+          <form method="post" action="/login">
             <h3>Sign in</h3>
             <label>E-mail</label>
             <input type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
@@ -69,19 +69,19 @@
 
           <div class="card">
             <div class="container">
-                <img src="./css/calendar.svg" height=100 width=100 alt="">
+                <img src="/styles/calendar.svg" height=100 width=100 alt="">
                 <p>Never miss a thing</p>
             </div>
           </div>
            <div class="card">
              <div class="container">
-               <img src="./css/notifications.svg" height=100 width=100 alt="">
+               <img src="/styles/notifications.svg" height=100 width=100 alt="">
                <p>Reminders</p>
              </div>
           </div>
            <div class="card">
              <div class="container">
-               <img src="./css/graph.svg" height=100 width=100 alt="">
+               <img src="/styles/graph.svg" height=100 width=100 alt="">
                <p>Visualized productivity</p>
              </div>
           </div>
