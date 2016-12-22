@@ -11,17 +11,19 @@
 		}
 		return response.view('homepage');
   },
+	logout: function (request, response) {
+		console.log("bedno");
+		delete request.session.userid;
+		return response.redirect("/");
+	},
  	authenticate: function (request, response) {
-		 console.log(request.body.password);
-
-		 return User.auth(request.body.email, request.body.password, function(userid) {
-			 console.log(userid);
+		 return User.auth(request, response, function(userid) {
 			 if (userid != null) {
 				 request.session.userid = userid;
 			 }
 			 //TO DO: modalnega okna ne sme zapreti, sporocilo
 			 return response.redirect('/');
 		 });
-   },
+   }
 
  };

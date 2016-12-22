@@ -38,26 +38,32 @@
      },
      productivitypts: {
        type: 'integer'
-     }
+     },
+     admin: {
+       type: 'integer'
+     },
+     toJSON: function() {
+      var obj = this.toObject();
+      delete obj.password;
+      return obj;
+    }
    },
-   auth: function (email, password, callback) {
-     //TO DO: orm
-     User.query('SELECT user.userid FROM user WHERE user.email = ? AND user.password = ?', [ email, password ] ,
-       function(err, rawResult) {
-         if (err) { return res.serverError(err); }
-
-         //sails.log(rawResult[0].userid);
-         // ...grab appropriate data...
-         // (result format depends on the SQL query that was passed in, and the adapter you're using)
-
-         // Then parse the raw result and do whatever you like with it.
-         var a = null;
-         if (rawResult[0] != null) {
-           a = rawResult[0].userid;
-         }
-
-         callback(a);
-
+   auth: function (req, res) {
+     User.find({
+       email: req.body.email,
+       password: req.body.password
+     }).exec(function(err, user) {
+       if (err) {
+         console.log("cannot find user, error");
+         return res.view("homepage");
+       }
+       if (user.length == 0) {
+         console.log("cannot find user");
+       }
+       else {
+         req.session.userid = user[0].userid;
+       }
+       return res.redirect('/');
      });
    }
  };

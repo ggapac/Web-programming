@@ -34,7 +34,8 @@ module.exports.routes = {
 
   '/': 'IndexController.index',
   'POST /login': 'IndexController.authenticate',
-  'GET /login': 'IndexController.index'
+  'GET /login': 'IndexController.index',
+  'GET /logout': 'IndexController.logout'
 
   /***************************************************************************
   *                                                                          *

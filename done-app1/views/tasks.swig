@@ -26,7 +26,7 @@
             <label for="check02">Profile &#9662;</label>
             <ul class="submenu">
               <li><a href="profile.html">View Profile</a></li>
-              <li><a href="index.html">Log out</a></li>
+              <li><a href="/logout">Log out</a></li>
             </ul>
           </li>
         </ul>
