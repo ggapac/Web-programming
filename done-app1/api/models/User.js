@@ -40,18 +40,23 @@
        type: 'integer'
      }
    },
-   auth: function (email, password) {
+   auth: function (email, password, callback) {
+     //TO DO: orm
      User.query('SELECT user.userid FROM user WHERE user.email = ? AND user.password = ?', [ email, password ] ,
        function(err, rawResult) {
          if (err) { return res.serverError(err); }
 
-         sails.log(rawResult);
+         //sails.log(rawResult[0].userid);
          // ...grab appropriate data...
          // (result format depends on the SQL query that was passed in, and the adapter you're using)
 
          // Then parse the raw result and do whatever you like with it.
+         var a = null;
+         if (rawResult[0] != null) {
+           a = rawResult[0].userid;
+         }
 
-         return res.ok();
+         callback(a);
 
      });
    }

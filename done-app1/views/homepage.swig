@@ -24,9 +24,9 @@
           <form method="post" action="/login">
             <h3>Sign in</h3>
             <label>E-mail</label>
-            <input type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <input name="email" type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
             <label>Password</label>
-            <input type="password" value="Password"><br>
+            <input name="password" type="password" value="Password"><br>
             <input type="submit" value="Submit">
           </form>
       	</div>
