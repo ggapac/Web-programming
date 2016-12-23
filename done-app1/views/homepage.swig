@@ -35,20 +35,20 @@
       <div id="register" class="modalRegister modalDialog">
         <div>
       		<a href="#close" title="Close" class="close">X</a>
-          <form>
+          <form method="post" action="/register">
             <h3>Register</h3>
             <label>First name</label>
-            <input type="text" value="John" onfocus="if (this.value == 'John') {this.value = '';}" onblur="if (this.value == '') {this.value = 'John';}"><br>
+            <input name="firstname" type="text" value="John" onfocus="if (this.value == 'John') {this.value = '';}" onblur="if (this.value == '') {this.value = 'John';}"><br>
             <label>Last name</label>
-            <input type="text" value="Doe" onfocus="if (this.value == 'Doe') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Doe';}"><br>
+            <input name="lastname" type="text" value="Doe" onfocus="if (this.value == 'Doe') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Doe';}"><br>
             <label>E-mail</label>
-            <input type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <input name="emailReg" type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
             <label>Password</label>
-            <input type="password" id="password" onchange="checkPassword()" value="Password"><br>
+            <input name="passwordReg" type="password" id="password" onchange="checkPassword()" value="Password"><br>
             <label>Repeat password</label>
-            <input type="password" id="repeatPassword" onkeyup="checkPassword()" value="Password"><br>
+            <input name="passwordRegRep" type="password" id="repeatPassword" onkeyup="checkPassword()" value="Password"><br>
             By clicking Register you agree to our Terms and Conditions and our Privacy Policy.
-            <input type="submit" value="Register" formaction="#sign">
+            <input type="submit" value="Register">
           </form>
       	</div>
       </div>

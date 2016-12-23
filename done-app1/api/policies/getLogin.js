@@ -1,9 +1,9 @@
 module.exports = function(req, res, next) {
+  console.log("se izvedem, login")
   if (!req.session.userid) {
-    console.log("sem tukaj1")
-    return res.redirect('/login');
+    return next();
   }
   else{
-    return next();
+    return res.redirect('/');
   }
 };

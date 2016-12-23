@@ -16,7 +16,7 @@
       </label>
       <input type="checkbox" id="show-menu">
       <nav>
-        <a href="tasks.html"><img src="./css/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
+        <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
           <li><a href="tasks.html" id="active">TO DOs</a></li>
           <li><a href="donetasks.html">DONEs</a></li>

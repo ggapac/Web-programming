@@ -4,10 +4,9 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+ var bcrypt = require("bcrypt");
 
  module.exports = {
-   autoCreatedAt: false,
-   autoUpdatedAt: false,
    attributes: {
      userid: {
        type: 'integer',
@@ -24,23 +23,30 @@
      },
      email: {
        type: 'string',
-       size: 45
+       size: 45,
+       required: true,
+       unique: true
      },
      password: {
        type: 'string',
-       size: 45
+       minLength: 5,
+       required: true
      },
      todos: {
-       type: 'integer'
+       type: 'integer',
+       defaultsTo: 0
      },
      dones: {
-       type: 'integer'
+       type: 'integer',
+       defaultsTo: 0
      },
      productivitypts: {
-       type: 'integer'
+       type: 'integer',
+       defaultsTo: 0
      },
      admin: {
-       type: 'integer'
+       type: 'integer',
+       defaultsTo: 0
      },
      toJSON: function() {
       var obj = this.toObject();
@@ -48,22 +54,17 @@
       return obj;
     }
    },
-   auth: function (req, res) {
-     User.find({
-       email: req.body.email,
-       password: req.body.password
-     }).exec(function(err, user) {
-       if (err) {
-         console.log("cannot find user, error");
-         return res.view("homepage");
-       }
-       if (user.length == 0) {
-         console.log("cannot find user");
-       }
-       else {
-         req.session.userid = user[0].userid;
-       }
-       return res.redirect('/');
-     });
-   }
+   beforeCreate: function(user, cb) {
+      bcrypt.genSalt(10, function(err, salt) {
+          bcrypt.hash(user.password, salt, function(err, hash) {
+              if (err) {
+                  console.log(err);
+                  cb(err);
+              } else {
+                  user.password = hash;
+                  cb();
+              }
+          });
+      });
+    }
  };

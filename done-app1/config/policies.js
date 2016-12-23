@@ -25,8 +25,13 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
-
   '*': 'isAuthenticated',
+
+  'UserController': {
+    'authenticate': 'getLogin',
+    'getLogin': 'getLogin',
+    'register': 'getLogin'
+  }
 
 
   /***************************************************************************
