@@ -48,6 +48,10 @@
        type: 'integer',
        defaultsTo: 0
      },
+     tasks: {
+       collection: 'tasks',
+       via: 'user'
+     },
      toJSON: function() {
       var obj = this.toObject();
       delete obj.password;

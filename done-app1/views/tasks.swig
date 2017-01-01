@@ -204,6 +204,16 @@
         <section class="othertasks">
           <h3>Other TO DOs</h3>
           <br>
+          {% for task in tasks %}
+            <div class="card p{{ task.priority }}">
+              <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
+              <div class="container ellipsis">
+                <b>{{ task.name }}</b>
+                <p>Priority rate: {{ task.priority }}</p>
+                <input type="checkbox">DONE
+              </div>
+            </div>
+          {% endfor %}
           <noscript>
             <div class="card p1">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
