@@ -52,6 +52,10 @@
        collection: 'tasks',
        via: 'user'
      },
+     tags: {
+       collection: 'tags',
+       via: 'user'
+     },
      toJSON: function() {
       var obj = this.toObject();
       delete obj.password;

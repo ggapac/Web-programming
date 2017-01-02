@@ -37,7 +37,8 @@ module.exports.routes = {
   //'GET /login': 'IndexController.index',
   'GET /login': "UserController.getLogin",
   'GET /logout': 'UserController.logout',
-  'POST /register': 'UserController.register'
+  'POST /register': 'UserController.register',
+  'POST /newtag': 'IndexController.addTag'
 
   /***************************************************************************
   *                                                                          *

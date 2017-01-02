@@ -38,7 +38,6 @@ module.exports = {
 		});
 	},
 	register: function(req, res) {
-		console.log(req.body);
 		//check if passwords are the same
 		bcrypt.compare(req.body.passwordReg, req.body.passwordRegRep, function(err, res1) {
 			if (err || !res) {

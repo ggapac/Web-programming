@@ -54,17 +54,18 @@
         <h3>TAGS</h3>
         <ul>
           <li><input type="checkbox" checked>All</li>
-          <li><input type="checkbox">Home</li>
-          <li><input type="checkbox">Work</li>
+          {% for tag in tags %}
+            <li><input type="checkbox">{{ tag.name }}</li>
+          {% endfor %}
         </ul>
       </aside>
 
       <div id="addTag" class="modalDialog modalTag">
         <div>
       		<a href="#close" title="Close" class="close">X</a>
-          <form id="newTag" onsubmit="newTag()">
+          <form id="newTag" method="post" action="/newtag">
             <h3>NEW TAG</h3>
-            TAG NAME: <input type="text" required>
+            TAG NAME: <input type="text" name="tagname" required>
             <input type="submit" value="Add TAG">
           </form>
       	</div>
