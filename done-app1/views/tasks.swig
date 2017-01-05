@@ -18,14 +18,14 @@
       <nav>
         <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
-          <li><a href="tasks.html" id="active">TO DOs</a></li>
-          <li><a href="donetasks.html">DONEs</a></li>
-          <li><a href="productivity.html">Productivity</a></li>
+          <li><a href="/" id="active">TO DOs</a></li>
+          <li><a href="/dones">DONEs</a></li>
+          <li><a href="/productivity">Productivity</a></li>
           <li class="drop">
             <input id="check02" type="checkbox" name="menu"/>
             <label for="check02">Profile &#9662;</label>
             <ul class="submenu">
-              <li><a href="profile.html">View Profile</a></li>
+              <li><a href="/profile">View Profile</a></li>
               <li><a href="/logout">Log out</a></li>
             </ul>
           </li>

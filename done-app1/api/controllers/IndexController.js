@@ -11,7 +11,11 @@
     User.find({
 			userid: req.session.userid
 		})
-    .populate('tasks')
+    .populate('tasks', {
+      where: {
+        status: 0
+      }
+    })
     .populate('tags')
     .exec(function(err, user) {
       if (err) {
@@ -36,6 +40,31 @@
       }
       return res.redirect('/');
     });
+  },
+  donetasks: function (req, res) {
+    User.find({
+			userid: req.session.userid
+		})
+    .populate('tasks', {
+      where: {
+        status: 1
+      }
+    })
+    .populate('tags')
+    .exec(function(err, user) {
+      if (err) {
+				sails.log("cannot find user, error");
+			}
+      if (user.length == 0) {
+				sails.log("cannot find user");
+			}
+      else {
+        return res.view('donetasks', {tasks: user[0].tasks, tags: user[0].tags});
+      }
+    });
+  },
+  productivity: function (req, res) {
+    return res.view('productivity');
   }
 
  };

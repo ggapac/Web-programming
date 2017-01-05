@@ -38,7 +38,11 @@ module.exports.routes = {
   'GET /login': "UserController.getLogin",
   'GET /logout': 'UserController.logout',
   'POST /register': 'UserController.register',
-  'POST /newtag': 'IndexController.addTag'
+  'POST /newtag': 'IndexController.addTag',
+  'GET /dones': 'IndexController.donetasks',
+  'GET /productivity': 'IndexController.productivity',
+  'GET /editprofile': 'ProfileController.editProfile',
+  'GET /profile': 'ProfileController.profile'
 
   /***************************************************************************
   *                                                                          *

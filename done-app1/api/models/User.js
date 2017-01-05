@@ -56,6 +56,10 @@
        collection: 'tags',
        via: 'user'
      },
+     preferences: {
+       collection: 'preferences',
+       via: 'user'
+     },
      toJSON: function() {
       var obj = this.toObject();
       delete obj.password;
