@@ -1,5 +1,5 @@
 /**
- * Tags.js
+ * Tasktags.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,21 +8,11 @@
 module.exports = {
 
   attributes: {
+    taskid: {
+      model: 'tasks'
+    },
     tagid: {
-      type: 'integer',
-      autoIncrement: true,
-      primaryKey: true
-    },
-    name: {
-      type: 'string',
-      size: 45
-    },
-    user: {
-      model: 'user'
-    },
-    tasks: {
-      collection: 'tasktags',
-      via: 'tagid'
+      model: 'tags'
     }
   }
 };

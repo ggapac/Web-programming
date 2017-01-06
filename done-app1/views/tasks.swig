@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/styles/app.css">
-    <script src="./js/tasks.js" defer></script>
-    <script src="./js/tags.js" defer></script>
+    <script src="/js/tasks.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
     <title>DONE</title>
   </head>
 
@@ -73,40 +75,31 @@
 
       <div id="addToDo" class="modalDialog">
         <div>
-      		<a href="#close" title="Close" class="close">X</a>
-          <form id="newToDo" onsubmit="newTask()">
+      		<a href="#" title="Close" class="close">X</a>
+          <form id="newToDo">
             <h3>NEW TO DO</h3>
-            TO DO NAME: <input type="text" placeholder="Name" required>
+            TO DO NAME: <input name="todoname" type="text" placeholder="Name" required>
             Description:
-            <textarea rows="4" cols="45" placeholder="Description">
+            <textarea name="description" rows="4" cols="45" placeholder="Description">
             </textarea>
             Deadline:
-            <input type="text" placeholder="dd.mm.yyyy">
+            <input name="deadline" type="text" placeholder="dd.mm.yyyy">
             Priority rate:
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <select name="priorityrate">
+              <option name="priorityrate" value="1">1</option>
+              <option name="priorityrate" value="2">2</option>
+              <option name="priorityrate" value="3">3</option>
+              <option name="priorityrate" value="4">4</option>
+              <option name="priorityrate" value="5">5</option>
             </select>
             Tags:
             <div class="tagsForNewToDo">
-              <input type="checkbox">Home
-              <br>
-              <input type="checkbox">Work
-              <br>
-              <input type="checkbox">Work
-              <br>
-              <input type="checkbox">Work
-              <br>
-              <input type="checkbox">Work
-              <br>
-              <input type="checkbox">Work
-              <br>
-              <input type="checkbox">Work
+              {% for tag in tags %}
+                <input name="t" type="checkbox"><span>{{ tag.name }}</span>
+                <br>
+              {% endfor %}
             </div>
-            <input type="submit" value="Add TO DO">
+            <input type="button" value="Add TO DO" onclick="newTask()">
           </form>
       	</div>
       </div>
@@ -127,14 +120,14 @@
         		<a href="#close" title="Close" class="close">X</a>
             <form>
               <h3>EDIT</h3>
-              TO DO NAME: <input type="text">
+              TO DO NAME: <input type="text" name="edittodoname">
               Description:
-              <textarea rows="4" cols="45" placeholder="Description">
+              <textarea name="editdescription" rows="4" cols="45" placeholder="Description">
               </textarea>
               Deadline:
-              <input type="text" placeholder="dd.mm.yyyy">
+              <input name="editdeadline" type="text" placeholder="dd.mm.yyyy">
               Priority rate:
-              <select>
+              <select name="editpriorityrate">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -143,19 +136,10 @@
               </select>
               Tags:
               <div class="tagsForNewToDo">
-                <input type="checkbox">Home
-                <br>
-                <input type="checkbox">Work
-                <br>
-                <input type="checkbox">Work
-                <br>
-                <input type="checkbox">Work
-                <br>
-                <input type="checkbox">Work
-                <br>
-                <input type="checkbox">Work
-                <br>
-                <input type="checkbox">Work
+                {% for tag in tags %}
+                  <input type="checkbox">{{ tag.name }}
+                  <br>
+                {% endfor %}
               </div>
               <input type="submit" value="Save">
             </form>

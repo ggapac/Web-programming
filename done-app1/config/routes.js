@@ -42,7 +42,8 @@ module.exports.routes = {
   'GET /dones': 'IndexController.donetasks',
   'GET /productivity': 'IndexController.productivity',
   'GET /editprofile': 'ProfileController.editProfile',
-  'GET /profile': 'ProfileController.profile'
+  'GET /profile': 'ProfileController.profile',
+  'POST /newtask': 'IndexController.addTask'
 
   /***************************************************************************
   *                                                                          *

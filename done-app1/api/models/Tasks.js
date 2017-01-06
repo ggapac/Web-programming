@@ -18,10 +18,10 @@ module.exports = {
       size: 45
     },
     deadline: {
-      type: 'datetime'
+      type: 'date'
     },
     finished: {
-      type: 'datetime'
+      type: 'date'
     },
     status: {
       type: 'integer',
@@ -36,6 +36,10 @@ module.exports = {
     },
     user: {
       model: 'user'
+    },
+    tags: {
+      collection: 'tasktags',
+      via: 'taskid'
     }
   }
 };
