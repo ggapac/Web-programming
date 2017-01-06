@@ -100,6 +100,16 @@
       }
       return res.redirect('/');
     });
+  },
+  taskinfo: function(req, res) {
+    Tasks.find({
+      taskid: req.params['id']
+    }).exec(function(err, records) {
+      if (err) {
+        sails.log("Cannot find task, taskinfo");
+      }
+      res.send(records[0]);
+    })
   }
 
  };

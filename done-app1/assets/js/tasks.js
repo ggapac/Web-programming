@@ -1,21 +1,22 @@
 console.log("Aaaaaa");
 
-/*function showInfo(id) {
-  idTask = id;
-  var request = new XMLHttpRequest();
-	request.addEventListener("load", function() {
-    var tasks = JSON.parse(this.responseText);
-    var modal = document.getElementById("ToDoInfo");
-    modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="values()">Edit</a><a href="#close" title="Close" class="close">X</a>'
-                    + '<h3>' + tasks.todos[idTask].name + '</h3><p>' + tasks.todos[idTask].description
-                    + '</p><p>Deadline: ' + tasks.todos[idTask].deadline + '</p><p>Priority rate: '
-                    + tasks.todos[idTask].priority + '</p><p>Tags: ' + tasks.todos[idTask].tags
-                    + '</p></div>'
+function showInfo(id) {
+  $.ajax({
+    type: "GET",
+    url: "/task/" + id,
+    success: function(data) {
+      console.log(data.deadline);
+      var modal = document.getElementById("ToDoInfo");
+      var date = data.deadline.substring(0,10);
+      var deadline = date.split("-").reverse().join(".");
+      modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="values()">Edit</a><a href="#close" title="Close" class="close">X</a>'
+                      + '<h3>' + data.name + '</h3><p>' + data.description
+                      + '</p><p>Deadline: ' + deadline + '</p><p>Priority rate: '
+                      + data.priority + '</p><p>Tags: ' + "TO DO!!!!"
+                      + '</p></div>'
+    }
   });
-	request.open("GET", "./json/tasks.json");
-	request.responseType = "text";
-	request.send();
-}*/
+}
 
 /*function taskId(event, id) {
   console.log(idTask)

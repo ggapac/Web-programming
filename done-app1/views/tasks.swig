@@ -18,7 +18,7 @@
       </label>
       <input type="checkbox" id="show-menu">
       <nav>
-        <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
+        <a href="/"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
           <li><a href="/" id="active">TO DOs</a></li>
           <li><a href="/dones">DONEs</a></li>
@@ -190,7 +190,7 @@
           <h3>Other TO DOs</h3>
           <br>
           {% for task in tasks %}
-            <div class="card p{{ task.priority }}">
+            <div class="card p{{ task.priority }}" id="{{ task.taskid }}" onclick="showInfo(this.id)">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
               <div class="container ellipsis">
                 <b>{{ task.name }}</b>
