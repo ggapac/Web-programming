@@ -34,18 +34,17 @@ module.exports.routes = {
 
   '/': 'IndexController.index',
   'POST /login': 'UserController.authenticate',
-  //'GET /login': 'IndexController.index',
   'GET /login': "UserController.getLogin",
   'GET /logout': 'UserController.logout',
   'POST /register': 'UserController.register',
-  'POST /newtag': 'IndexController.addTag',
+  'POST /newtag': 'TagsController.addTag',
   'GET /dones': 'IndexController.donetasks',
   'GET /productivity': 'IndexController.productivity',
-  'GET /editprofile': 'ProfileController.editProfile',
+  'POST /editprofile': 'ProfileController.editProfile',
   'GET /profile': 'ProfileController.profile',
-  'POST /newtask': 'IndexController.addTask',
-  //'GET /gettaskinfo': 'IndexController.taskinfo',
-  'GET /task/:id': 'IndexController.taskinfo'
+  'POST /newtask': 'TasksController.addTask',
+  'GET /task/:id': 'TasksController.taskInfo',
+  'POST /taskdone': 'TasksController.taskDone'
 
   /***************************************************************************
   *                                                                          *

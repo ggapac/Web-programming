@@ -44,9 +44,10 @@
         </label>
         <input class="hidecheckbox" type="checkbox" id="show-tags">
         <ul id="tags">
-          <li><input type="checkbox" checked>All</li>
-          <li><input type="checkbox">Home</li>
-          <li><input type="checkbox">Work</li>
+          <li><input type="radio" name="tags" checked><label>All</label></li>
+          {% for tag in tags %}
+            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><label>{{ tag.name }}</label></li>
+          {% endfor %}
         </ul>
       </div>
 
@@ -55,9 +56,9 @@
         <a class ="add" href="#addTag">+</a>
         <h3>TAGS</h3>
         <ul>
-          <li><input type="checkbox" checked>All</li>
+          <li><input type="radio" name="tags" checked><span>All</span></li>
           {% for tag in tags %}
-            <li><input type="checkbox">{{ tag.name }}</li>
+            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
           {% endfor %}
         </ul>
       </aside>
@@ -95,7 +96,7 @@
             Tags:
             <div class="tagsForNewToDo">
               {% for tag in tags %}
-                <input name="t" type="checkbox"><span>{{ tag.name }}</span>
+                <input name="t" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span>
                 <br>
               {% endfor %}
             </div>
@@ -186,16 +187,16 @@
         </section>
         <br>
         <hr>
-        <section class="othertasks">
+        <div class="othertasks">
           <h3>Other TO DOs</h3>
           <br>
           {% for task in tasks %}
-            <div class="card p{{ task.priority }}" id="{{ task.taskid }}" onclick="showInfo(this.id)">
+            <div class="card p{{ task.priority }}" id="{{ task.taskid }}" data-tag="{{ task.tag }}" onclick="showInfo(this.id)">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
               <div class="container ellipsis">
                 <b>{{ task.name }}</b>
                 <p>Priority rate: {{ task.priority }}</p>
-                <input type="checkbox">DONE
+                <input name="done" type="checkbox">DONE
               </div>
             </div>
           {% endfor %}
@@ -322,7 +323,7 @@
 
           </noscript>
 
-        </section>
+        </div>
       </div>
     </div>
 

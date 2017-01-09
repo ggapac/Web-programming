@@ -20,9 +20,9 @@ module.exports = {
     user: {
       model: 'user'
     },
-    tasks: {
-      collection: 'tasktags',
-      via: 'tagid'
+    task: {
+      collection: 'tasks',
+      via: 'tag'
     }
   }
 };

@@ -34,12 +34,11 @@ module.exports = {
       type: 'string',
       size: 200
     },
+    tag: {
+      model: 'tags'
+    },
     user: {
       model: 'user'
-    },
-    tags: {
-      collection: 'tasktags',
-      via: 'taskid'
     }
   }
 };

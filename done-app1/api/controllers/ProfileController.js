@@ -23,7 +23,6 @@ module.exports = {
     });
   },
 	editProfile: function(req, res) {
-		sails.log("edit");
 		User.update({
 			userid: req.session.userid
 		},
@@ -36,7 +35,7 @@ module.exports = {
 		    sails.log("Cannot update user");
 		    return;
 		  }
-		  return res.view('profile', {user: user[0]});
+		  return res.view('profile', {user: updated[0]});
 		});
 	}
 };

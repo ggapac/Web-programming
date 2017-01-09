@@ -26,9 +26,9 @@ module.exports = {
 			}
 			else {
 				bcrypt.compare(req.body.password, user[0].password, function(err, res1) {
-					if(err || !res) {
+					if(err || !res1) {
 						console.log("incorrect password");
-						return res1.redirect('/login');
+						return res.redirect('/login');
 					}
 					req.session.userid = user[0].userid;
 

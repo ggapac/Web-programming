@@ -1,18 +1,47 @@
-console.log("Aaaaaa");
+$(document).ready(function() {
+  tasksByTags();
+  checkDone();
+});
+
+function tasksByTags() {
+  $('input:radio[name=tags]').change(function() {
+    var label = $(this).next('span').html();
+    var id = $(this)[0].id;
+
+    if (label != "All") {
+      $('.othertasks > .card').hide();
+      $(".othertasks > [data-tag='" + id + "']").show();
+    }
+    else {
+      $('.othertasks > .card').show();
+    }
+  });
+}
+
+function checkDone() {
+  $('input:checkbox[name=done]').change(function() {
+    var id = $(this).parent().parent()[0].id;
+
+    $.ajax({
+      type: "POST",
+      url: "taskdone",
+      data: {"id": id}
+    });
+  });
+}
 
 function showInfo(id) {
   $.ajax({
     type: "GET",
     url: "/task/" + id,
     success: function(data) {
-      console.log(data.deadline);
       var modal = document.getElementById("ToDoInfo");
-      var date = data.deadline.substring(0,10);
+      var date = data.task.deadline.substring(0,10);
       var deadline = date.split("-").reverse().join(".");
       modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="values()">Edit</a><a href="#close" title="Close" class="close">X</a>'
-                      + '<h3>' + data.name + '</h3><p>' + data.description
+                      + '<h3>' + data.task.name + '</h3><p>' + data.task.description
                       + '</p><p>Deadline: ' + deadline + '</p><p>Priority rate: '
-                      + data.priority + '</p><p>Tags: ' + "TO DO!!!!"
+                      + data.task.priority + '</p><p>Tags: ' + data.tag.name
                       + '</p></div>'
     }
   });
@@ -33,15 +62,6 @@ function showInfo(id) {
 /*function hide(id) {
   var card = document.getElementById(id);
   card.style.display = "none";
-}
-
-function newTag() {
-  var name = document.getElementById("newTag").elements[0].value;
-  var div = document.querySelector(".tags");
-
-  div.innerHTML += '<li style="list-style-type: none!important;"><input type="checkbox">' + name + '</li>';
-  document.querySelector(".close").click();
-  emptyFields(document.getElementById("newTag").elements);
 }*/
 
 function newTask() {
@@ -53,11 +73,9 @@ function newTask() {
   var priority = elements[3].value;
   var divTags = document.querySelector(".tagsForNewToDo");
   var checkboxes = divTags.childNodes;
-  var tags = [];
 
-  $('input:checkbox[name=t]:checked').each(function() {
-       tags.push($(this).next('span').html());
-  });
+  var radio = $('input:radio[name=t]:checked');
+  var tag = radio[0].id;
 
   $.ajax({
     type: "POST",
@@ -67,7 +85,7 @@ function newTask() {
       "description": description,
       "deadline": deadline,
       "priority": priority,
-      "tags": tags
+      "tag": tag
     }
   });
 
