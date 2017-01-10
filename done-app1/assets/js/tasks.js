@@ -27,6 +27,8 @@ function checkDone() {
       url: "taskdone",
       data: {"id": id}
     });
+
+    $(this).parent().parent().hide();
   });
 }
 
@@ -69,22 +71,6 @@ function editTask(id) {
   });
 
 }
-/*function taskId(event, id) {
-  console.log(idTask)
-  var tasks = JSON.parse(this.responseText);
-  var modal = document.getElementById("ToDoInfo");
-
-  modal.innerHTML += '<div><a class = "edit" href="#edit">Edit</a><a href="#close" title="Close" class="close">X</a>'
-                  + '<form><h3>' + tasks.todos[idTask].name + '</h3><p>' + tasks.todos[idTask].description
-                  + '</p><p>Deadline: ' + tasks.todos[idTask].deadline + '</p><p>Priority rate: '
-                  + tasks.todos[idTask].priority + '</p><p>Tags: ' + tasks.todos[idTask].tags
-                  + '</p><input type="checkbox">DONE</form></div>'
-}*/
-
-/*function hide(id) {
-  var card = document.getElementById(id);
-  card.style.display = "none";
-}*/
 
 function newTask() {
   console.log("greta");

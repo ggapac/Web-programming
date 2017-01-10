@@ -51,8 +51,22 @@ module.exports = {
       if (err) {
         sails.log("Cannot update task, taskdone.");
       }
+			return res.redirect('/');
     });
   },
+	taskUndone: function(req, res) {
+		Tasks.update({
+      taskid: req.body.id
+    },
+    {
+      status: 0
+    }).exec(function(err, updated) {
+      if (err) {
+        sails.log("Cannot update task, taskundone.");
+      }
+			return res.redirect('/dones');
+    });
+	},
 	editTask: function(req, res) {
 		//TODO: check dates for deadline
 
@@ -66,7 +80,7 @@ module.exports = {
 			name: req.body.edittodoname,
 			deadline: deadline,
 			description: req.body.editdescription,
-			tag: req.body.eddittag,
+			tag: req.body.edittag,
 			priority: req.body.editpriorityrate
 		}).exec(function(err, update) {
 			if (err) {

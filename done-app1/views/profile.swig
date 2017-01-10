@@ -13,7 +13,7 @@
       <label for="show-menu" class="show-menu"><img src="/styles/done_logo.svg" class="logo1" height="50" width="130" alt=""/></label>
       <input type="checkbox" id="show-menu">
       <nav>
-        <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
+        <a href="/"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
           <li><a href="/">TO DOs</a></li>
           <li><a href="/dones">DONEs</a></li>
@@ -83,12 +83,23 @@
         <h3>PREFERENCES</h3>
         <div class="infoProfile">
           <div class="choice">
-            <input type="checkbox">Let DONE pick daily tasks for you
-            <div class="pick">Number of tasks per day: <input type="text"></div>
+            Let DONE pick daily tasks for you
+            <br>
+            Number of tasks per day:
+            <select>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">4</option>
+              <option value="6">4</option>
+              <option value="7">4</option>
+              <option value="8">4</option>
+            </select>
           </div>
-          
         </div>
-        <a class="edit" href="#edit" style="padding-bottom:none">Save</a>
+        <a class="edit" href="#edit" style="margin-top:-38px;">Save</a>
       </section>
     </div>
 

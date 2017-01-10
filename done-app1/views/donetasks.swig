@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/styles/app.css">
     <script src="./js/donetasks.js" defer></script>
-    <script src="./js/tags.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>DONE</title>
   </head>
 
@@ -33,7 +33,6 @@
 
     <div class="wrapper">
       <div class="tagsmobile">
-        <a class ="add" href="#addTag">+</a>
         <label for="show-tags" class="show-tags">
           TAGS &#9662;
         </label>
@@ -48,7 +47,6 @@
 
 
       <aside class="tags">
-        <a class ="add" href="#addTag">+</a>
         <h3>TAGS</h3>
         <ul>
           <li><input type="radio" name="tags" checked><span>All</span></li>
@@ -79,12 +77,12 @@
           <h3>DONEs</h3>
           <br>
           {% for task in tasks %}
-            <div class="card p{{ task.priority }}">
+            <div class="card p{{ task.priority }}" id="{{ task.taskid }}" data-tag="{{ task.tag }}" onclick="showInfo(this.id)">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
               <div class="container ellipsis">
                 <b>{{ task.name }}</b>
                 <p>Priority rate: {{ task.priority }}</p>
-                <input type="checkbox">UNDONE
+                <input name="done" type="checkbox">UNDONE
               </div>
             </div>
           {% endfor %}

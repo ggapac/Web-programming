@@ -45,6 +45,7 @@ module.exports.routes = {
   'POST /newtask': 'TasksController.addTask',
   'GET /task/:id': 'TasksController.taskInfo',
   'POST /taskdone': 'TasksController.taskDone',
+  'POST /dones/taskundone': 'TasksController.taskUndone',
   'POST /edittask': 'TasksController.editTask'
 
   /***************************************************************************
