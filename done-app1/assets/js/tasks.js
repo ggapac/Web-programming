@@ -36,9 +36,9 @@ function showInfo(id) {
     url: "/task/" + id,
     success: function(data) {
       var modal = document.getElementById("ToDoInfo");
-      var date = data.task.deadline.substring(0,10);
-      var deadline = date.split("-").reverse().join(".");
-      modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="values()">Edit</a><a href="#close" title="Close" class="close">X</a>'
+      $('#ToDoInfo').attr('taskid', data.task.taskid);
+      var deadline = convertDate(new Date(Date.parse(data.task.deadline)));
+      modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="editTask(' + data.task.taskid + ')">Edit</a><a href="#close" title="Close" class="close">X</a>'
                       + '<h3>' + data.task.name + '</h3><p>' + data.task.description
                       + '</p><p>Deadline: ' + deadline + '</p><p>Priority rate: '
                       + data.task.priority + '</p><p>Tags: ' + data.tag.name
@@ -47,6 +47,28 @@ function showInfo(id) {
   });
 }
 
+function convertDate(date) {
+  function zeros(s) { return (s < 10) ? '0' + s : s; }
+  return [zeros(date.getDate()), zeros(date.getMonth()+1), date.getFullYear()].join('.');
+}
+
+function editTask(id) {
+  $.ajax({
+    type: "GET",
+    url: "/task/" + id,
+    success: function(data) {
+      var deadline = convertDate(new Date(Date.parse(data.task.deadline)));
+      $('input[name="edittodoname"]').val(data.task.name);
+      $('textarea[name="editdescription"]').val(data.task.description);
+      $('input[name="editdeadline"]').val(deadline);
+      $('option[name="editpriorityrate"][value=' + data.task.priority + ']').attr('selected', true);
+      var tag = "#radio" + data.task.tag;
+      $(tag).attr('checked', true);
+      $('.edittaskid').val(data.task.taskid);
+    }
+  });
+
+}
 /*function taskId(event, id) {
   console.log(idTask)
   var tasks = JSON.parse(this.responseText);

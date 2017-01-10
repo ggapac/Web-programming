@@ -44,7 +44,8 @@ module.exports.routes = {
   'GET /profile': 'ProfileController.profile',
   'POST /newtask': 'TasksController.addTask',
   'GET /task/:id': 'TasksController.taskInfo',
-  'POST /taskdone': 'TasksController.taskDone'
+  'POST /taskdone': 'TasksController.taskDone',
+  'POST /edittask': 'TasksController.editTask'
 
   /***************************************************************************
   *                                                                          *

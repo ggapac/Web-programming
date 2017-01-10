@@ -52,6 +52,28 @@ module.exports = {
         sails.log("Cannot update task, taskdone.");
       }
     });
-  }
+  },
+	editTask: function(req, res) {
+		//TODO: check dates for deadline
+
+		//dajanje tagov notri ne dela
+		sails.log(req.body.edittag);
+		var date = req.body.editdeadline;
+    var deadline = date.split(".").reverse().join("-");
+		Tasks.update({
+			taskid: req.body.taskid
+		}, {
+			name: req.body.edittodoname,
+			deadline: deadline,
+			description: req.body.editdescription,
+			tag: req.body.eddittag,
+			priority: req.body.editpriorityrate
+		}).exec(function(err, update) {
+			if (err) {
+				sails.log("Cannot edit task");
+			}
+			return res.redirect('/');
+		})
+	}
 
 };

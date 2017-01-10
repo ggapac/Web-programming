@@ -44,9 +44,9 @@
         </label>
         <input class="hidecheckbox" type="checkbox" id="show-tags">
         <ul id="tags">
-          <li><input type="radio" name="tags" checked><label>All</label></li>
+          <li><input type="radio" name="tags" checked><span>All</span></li>
           {% for tag in tags %}
-            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><label>{{ tag.name }}</label></li>
+            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
           {% endfor %}
         </ul>
       </div>
@@ -119,7 +119,7 @@
       <div id="edit" class="modalDialog">
           <div>
         		<a href="#close" title="Close" class="close">X</a>
-            <form>
+            <form method="post" action="edittask">
               <h3>EDIT</h3>
               TO DO NAME: <input type="text" name="edittodoname">
               Description:
@@ -129,19 +129,20 @@
               <input name="editdeadline" type="text" placeholder="dd.mm.yyyy">
               Priority rate:
               <select name="editpriorityrate">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option name="editpriorityrate" value="1">1</option>
+                <option name="editpriorityrate" value="2">2</option>
+                <option name="editpriorityrate" value="3">3</option>
+                <option name="editpriorityrate" value="4">4</option>
+                <option name="editpriorityrate" value="5">5</option>
               </select>
               Tags:
               <div class="tagsForNewToDo">
                 {% for tag in tags %}
-                  <input type="checkbox">{{ tag.name }}
+                  <input name="edittag" id="radio{{ tag.tagid }}" type="radio" value="{{ tag.tagid }}">{{ tag.name }}
                   <br>
                 {% endfor %}
               </div>
+              <input name="taskid" type="text" class="edittaskid">
               <input type="submit" value="Save">
             </form>
         	</div>

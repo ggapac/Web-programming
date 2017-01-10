@@ -79,21 +79,16 @@
         </div>
       </section>
 
-      <section class="infoCard">
-        <a class="edit" href="#edit">Edit</a>
+      <section class="infoCardPref">
         <h3>PREFERENCES</h3>
         <div class="infoProfile">
           <div class="choice">
             <input type="checkbox">Let DONE pick daily tasks for you
             <div class="pick">Number of tasks per day: <input type="text"></div>
           </div>
-          <br>
-          <br>
-          <div class="choice">
-            <input type="checkbox">Send me e-mail reminders
-            <div class="pick">Hours before the deadline: <input type="text"></div>
-          </div>
+          
         </div>
+        <a class="edit" href="#edit" style="padding-bottom:none">Save</a>
       </section>
     </div>
 

@@ -33,28 +33,30 @@
 
     <div class="wrapper">
       <div class="tagsmobile">
-        <noscript>
-          <label for="show-tags" class="show-tags">
-            TAGS &#9662;
-          </label>
-          <input class="hidecheckbox" type="checkbox" id="show-tags">
-          <ul id="tags">
-            <li><input type="checkbox" checked>All</li>
-            <li><input type="checkbox">Home</li>
-            <li><input type="checkbox">Work</li>
-          </ul>
-        </noscript>
-      </div>
-
-      <div class="tags">
-        <h3>TAGS</h3>
-        <ul>
-          <li><input type="checkbox" checked>All</li>
+        <a class ="add" href="#addTag">+</a>
+        <label for="show-tags" class="show-tags">
+          TAGS &#9662;
+        </label>
+        <input class="hidecheckbox" type="checkbox" id="show-tags">
+        <ul id="tags">
+          <li><input type="radio" name="tags" checked><span>All</span></li>
           {% for tag in tags %}
-            <li><input type="checkbox">{{ tag.name }}</li>
+            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
           {% endfor %}
         </ul>
       </div>
+
+
+      <aside class="tags">
+        <a class ="add" href="#addTag">+</a>
+        <h3>TAGS</h3>
+        <ul>
+          <li><input type="radio" name="tags" checked><span>All</span></li>
+          {% for tag in tags %}
+            <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
+          {% endfor %}
+        </ul>
+      </aside>
 
 
       <div id="ToDoInfo" class="modalDialog modalInfo">

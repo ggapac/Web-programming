@@ -321,6 +321,13 @@ input[type="submit"]{
   margin: 0 auto;
 }
 
+.infoCardPref {
+  background-color: white;
+  width: 70%;
+  height: 150px;
+  margin: 0 auto;
+}
+
 .infoProfile {
   width: 80%;
   height: 80%;
@@ -482,7 +489,11 @@ input[type="checkbox"]:checked ~ div, .pick:target {
     width: 100%;
     display: block;
     float: none;
-    height: 450px;
+  }
+  .infoCardPref {
+    width: 100%;
+    display: block;
+    float: none;
   }
   .infoUser {
     width: 100%;
@@ -577,6 +588,9 @@ input[type="checkbox"]:checked ~ div, .pick:target {
   .infoCard {
     width: 90%;
   }
+  .infoCardPref {
+    width: 90%;
+  }
 
   /*modal dialogs*/
   .modalDialog {
@@ -650,5 +664,9 @@ header input[type=checkbox]:checked ~ nav > #menu {
 }
 
 .tagsmobile {
+  display: none;
+}
+
+.edittaskid {
   display: none;
 }
