@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/styles/app.css">
-    <script src="./js/profile.js" defer></script>
+    <script src="./js/preferences.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>DONE</title>
   </head>
 
@@ -86,20 +87,20 @@
             Let DONE pick daily tasks for you
             <br>
             Number of tasks per day:
-            <select>
+            <select id="perday">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
-              <option value="5">4</option>
-              <option value="6">4</option>
-              <option value="7">4</option>
-              <option value="8">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
             </select>
           </div>
         </div>
-        <a class="edit" href="#edit" style="margin-top:-38px;">Save</a>
+        <a class="edit" id="savepref" href="#preferences" style="margin-top:-38px;">Save</a>
       </section>
     </div>
 

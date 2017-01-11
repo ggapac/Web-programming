@@ -48,16 +48,16 @@
        type: 'integer',
        defaultsTo: 0
      },
+     tasksperday: {
+       type: 'integer',
+       defaultsTo: 0
+     },
      tasks: {
        collection: 'tasks',
        via: 'user'
      },
      tags: {
        collection: 'tags',
-       via: 'user'
-     },
-     preferences: {
-       collection: 'preferences',
        via: 'user'
      },
      toJSON: function() {

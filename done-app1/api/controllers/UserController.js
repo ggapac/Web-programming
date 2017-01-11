@@ -53,9 +53,9 @@ module.exports = {
 				if (err) {
 					console.log(err);
 					sails.log("Cannot create user");
-					return res.redirect('/');
+					return res.redirect('/login');
 				}
-				return res.ok();
+				return res.redirect('/login');
 			});
 		})
 	},

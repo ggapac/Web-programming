@@ -37,5 +37,19 @@ module.exports = {
 		  }
 		  return res.view('profile', {user: updated[0]});
 		});
+	},
+	changePreferences: function(req, res) {
+		sails.log(req.body.number);
+		User.update({
+			userid: req.session.userid
+		},
+		{
+			tasksperday: req.body.number
+		}).exec(function(err, updated) {
+			if (err) {
+				sails.log("Cannot update user preferences");
+			}
+			return res.view('profile', {user: updated[0]});
+		});
 	}
 };

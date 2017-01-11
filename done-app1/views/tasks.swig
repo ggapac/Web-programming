@@ -153,45 +153,23 @@
         <section class="dailytaks">
           <h3>Daily N TO DOs</h3>
           <br>
-          <div class="card p5">
-            <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
-            <div class="container ellipsis">
-                <b>TO DO NAME</b>
-                <p>Priority rate: 5</p>
-                <input type="checkbox">DONE
+          {% for task in dailytasks %}
+            <div class="card p{{ task.priority }}" id="{{ task.taskid }}" data-tag="{{ task.tag }}" onclick="showInfo(this.id)">
+              <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
+              <div class="container ellipsis">
+                <b>{{ task.name }}</b>
+                <p>Priority rate: {{ task.priority }}</p>
+                <input name="done" type="checkbox">DONE
+              </div>
             </div>
-          </div>
-          <div class="card p5">
-            <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
-            <div class="container ellipsis">
-              <b>TO DO NAME</b>
-              <p>Priority rate: 5</p>
-              <input type="checkbox">DONE
-            </div>
-          </div>
-          <div class="card p5">
-            <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
-            <div class="container ellipsis">
-              <b>TO DO NAME</b>
-              <p>Priority rate: 5</p>
-              <input type="checkbox">DONE
-            </div>
-          </div>
-          <div class="card p5">
-            <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
-            <div class="container ellipsis">
-              <b>TO DO NAME</b>
-              <p>Priority rate: 5</p>
-              <input type="checkbox">DONE
-            </div>
-          </div>
+          {% endfor %}
         </section>
         <br>
         <hr>
         <div class="othertasks">
           <h3>Other TO DOs</h3>
           <br>
-          {% for task in tasks %}
+          {% for task in othertasks %}
             <div class="card p{{ task.priority }}" id="{{ task.taskid }}" data-tag="{{ task.tag }}" onclick="showInfo(this.id)">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
               <div class="container ellipsis">

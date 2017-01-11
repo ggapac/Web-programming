@@ -21,7 +21,7 @@ module.exports = {
       if (err2) {
         sails.log("Cannot make task, add task.");
       }
-      return res.redirect('/');
+      return res.send({task: task});
     });
   },
   taskInfo: function(req, res) {

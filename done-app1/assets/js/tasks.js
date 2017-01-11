@@ -73,7 +73,6 @@ function editTask(id) {
 }
 
 function newTask() {
-  console.log("greta");
   var elements = document.getElementById("newToDo").elements;
   var name = elements[0].value;
   var description = elements[1].value;
@@ -94,6 +93,20 @@ function newTask() {
       "deadline": deadline,
       "priority": priority,
       "tag": tag
+    },
+    success: function(data) {
+      var tasks = $('.othertasks');
+      console.log(data.task.priority);
+      console.log(data.task.taskid);
+      console.log(data.task.tag);
+      console.log(data.task.name);
+      //NE DELAAAAA
+      tasks.innerHTML += '<div class="card p' + data.task.priority + '" id="' + data.task.taskid + '" '
+                      +  'data-tag="' + data.task.tag + '" onclick="showInfo(this.id)">'
+                      +  '<a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>'
+                      +  '<div class="container ellipsis"><b>' + data.task.name + '</b><p>Priority rate: '
+                      +  data.task.priority + '</p><input name="done" type="checkbox">DONE'
+                      +  '</div></div>';
     }
   });
 
