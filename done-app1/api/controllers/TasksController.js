@@ -8,7 +8,17 @@
 module.exports = {
 	addTask: function(req, res) {
     var date = req.body.deadline;
+		var day = date.substring(0,2);
+		var month = date.split(3,5);
+		var year = date.split(6,10);
+
+		//check date
+		
+
     var deadline = date.split(".").reverse().join("-");
+
+
+
 
     Tasks.create({
       name: req.body.taskname,

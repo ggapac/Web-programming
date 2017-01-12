@@ -674,8 +674,6 @@ header input[type=checkbox]:checked ~ nav > #menu {
 .errors {
   background-color: #ac3a4a;
   color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
   display: block;
   margin: 0 auto;
   width: 100%;

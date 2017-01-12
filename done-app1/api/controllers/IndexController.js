@@ -25,8 +25,13 @@
 				sails.log("cannot find user");
 			}
       else {
+        message = "";
+        if (req.session.message != null) {
+          message = req.session.message;
+          delete req.session.message;
+        }
         if (user.tasksperday == 0) {
-          return res.view('tasks', {othertasks: user.tasks, tags: user.tags});
+          return res.view('tasks', {othertasks: user.tasks, tags: user.tags, messages: message});
         }
         else {
           user.tasks.sort(function(a,b) {
@@ -39,12 +44,12 @@
           })
 
           if (user.tasks.length <= user.tasksperday) {
-            return res.view('tasks', {dailytasks: user.tasks, tags: user.tags});
+            return res.view('tasks', {dailytasks: user.tasks, tags: user.tags, messages: message});
           }
           else {
             daily = user.tasks.slice(0, user.tasksperday);
             other = user.tasks.slice(user.tasksperday, user.tasks.length);
-            return res.view('tasks', {dailytasks: daily, othertasks: other, tags: user.tags});
+            return res.view('tasks', {dailytasks: daily, othertasks: other, tags: user.tags, messages: message});
           }
         }
       }
