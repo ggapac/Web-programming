@@ -58,17 +58,15 @@
 
 
       <div id="ToDoInfo" class="modalDialog modalInfo">
-        <div>
-          <a class = "edit" href="#edit">{{ __("Edit") }}</a>
-      		<a href="#close" title="Close" class="close">X</a>
-          <form>
-            <h3>TO DO NAME</h3>
-            <p>Description description description description description description description description description.</p>
-            <p>Deadline: 27.11.2016</p>
-            <p>Priority rate: 5</p>
-            <p>Tags: Home</p>
-          </form>
-      	</div>
+          <div>
+            <a class="edit" href="#edit" onclick="values()">{{ __("Edit") }}</a>
+        		<a href="#close" title="Close" class="close">X</a>
+            <h3>{{ __("TO DO NAME") }}</h3>
+            <p class="infoDescription">Description description description description description description description description description.</p>
+            <p class="infoDeadline">{{ __("Deadline") }}: </p>
+            <p class="infoPriority">{{ __("Priority rate") }}: </p>
+            <p class="infoTags">{{ __("Tags") }}: </p>
+        	</div>
       </div>
 
 

@@ -37,14 +37,14 @@ function showInfo(id) {
     type: "GET",
     url: "/task/" + id,
     success: function(data) {
-      var modal = document.getElementById("ToDoInfo");
       $('#ToDoInfo').attr('taskid', data.task.taskid);
+      $('#ToDoInfo').attr('onClick','editTask(' + data.task.taskid + ')');
       var deadline = convertDate(new Date(Date.parse(data.task.deadline)));
-      modal.innerHTML = '<div><a class = "edit" href="#edit" onclick="editTask(' + data.task.taskid + ')">{{ __("Edit") }}</a><a href="#close" title="Close" class="close">X</a>'
-                      + '<h3>' + data.task.name + '</h3><p>' + data.task.description
-                      + '</p><p>{{ __("Deadline") }}: ' + deadline + '</p><p>{{ __("Priority rate") }}: '
-                      + data.task.priority + '</p><p>{{ __("Tags") }}: ' + data.tag.name
-                      + '</p></div>'
+      
+      $('.infoDescription').html(data.task.description);
+      $('.infoDeadline').append(deadline);
+      $('.infoPriority').append(data.task.priority);
+      $('.infoTags').append(data.tag.name)
     }
   });
 }
