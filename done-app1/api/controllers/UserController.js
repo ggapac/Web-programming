@@ -8,7 +8,6 @@
 
 module.exports = {
 	logout: function (request, response) {
-		console.log("bedno");
 		delete request.session.userid;
 		return response.redirect("/login");
 	},
@@ -17,18 +16,21 @@ module.exports = {
 			email: req.body.email
 		}).exec(function(err, user) {
 			if (err) {
-				console.log("cannot find user, error");
-				return res.redirect('/login');
-			}
+				sails.log("cannot find user, error");
+        req.session.message = ["Incorrect e-mail or password."];
+        return res.redirect('/login');
+      }
 			if (user.length == 0) {
-				console.log("cannot find user");
-				return res.redirect('/login');
+				sails.log("cannot find user");
+        req.session.message = ["Incorrect e-mail or password."];
+        return res.redirect('/login');
 			}
 			else {
 				bcrypt.compare(req.body.password, user[0].password, function(err, res1) {
 					if(err || !res1) {
 						console.log("incorrect password");
-						return res.redirect('/login');
+            req.session.message = ["Incorrect e-mail or password."];
+            return res.redirect('/login');
 					}
 					req.session.userid = user[0].userid;
 
@@ -38,12 +40,32 @@ module.exports = {
 		});
 	},
 	register: function(req, res) {
-		//check if passwords are the same
-		bcrypt.compare(req.body.passwordReg, req.body.passwordRegRep, function(err, res1) {
-			if (err || !res) {
-				sails.log("passwords don't match");
-				return res1.redirect('/login');
-			}
+    //check if account with this email already exists
+    sails.log(req.body.emailReg);
+    User.find({
+			email: req.body.emailReg
+		}).exec(function(err, user) {
+      sails.log(user);
+      if (err) {
+        return res.view('homepage', {messages: ["Error"]});
+      }
+      if (user.length != 0) {
+        sails.log("user ze obstaja");
+        req.session.message = ["This e-mail address is already registered."];
+        return res.redirect('/login');
+      }
+      //check if passwords are the same
+      if (req.body.passwordReg != req.body.passwordRegRep) {
+        sails.log("passwords don't match");
+        req.session.message = ["Passwords don't match."];
+        return res.redirect('/login');
+      }
+      //check for email
+      var reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!reg.test(req.body.emailReg)) {
+        req.session.message = ["E-mail is not correct."];
+        return res.redirect('/login');
+      }
 			User.create({
 				firstname: req.body.firstname,
 				lastname: req.body.lastname,
@@ -51,15 +73,21 @@ module.exports = {
 				password: req.body.passwordReg
 			}).exec(function(err, records) {
 				if (err) {
-					console.log(err);
 					sails.log("Cannot create user");
-					return res.redirect('/login');
+          req.session.message = ["Error: Cannot create user!"];
+          return res.redirect('/login');
 				}
-				return res.redirect('/login');
+        req.session.message = ["Succesfully registered."];
+        return res.redirect('/login');
 			});
-		})
+    });
 	},
 	getLogin: function(req, res) {
+    if (req.session.message != null) {
+      message = req.session.message;
+      delete req.session.message;
+      return res.view('homepage', {messages: message});
+    }
 		return res.view('homepage');
 	}
 };

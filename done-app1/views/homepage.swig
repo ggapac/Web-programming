@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/styles/landing.css">
+    <script src="./js/landing.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <title>DONE</title>
   </head>
 
   <body>
+    <div class="errors">
+      {% for m in messages %}
+        <p>{{ m }}</p>
+      {% endfor %}
+    </div>
     <header class="centered-content">
       <ul>
         <li><a href="#sign" id="signin">{{ __("Sign in") }}</a></li>
@@ -23,9 +31,9 @@
           <form method="post" action="/login">
             <h3>{{ __("Sign in") }}</h3>
             <label>{{ __("E-mail") }}</label>
-            <input name="email" type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <input name="email" type="email" placeholder="E-mail" required><br>
             <label>{{ __("Password") }}</label>
-            <input name="password" type="password" value="Password"><br>
+            <input name="password" type="password" placeholder="Password" required><br>
             <input type="submit" value='{{ __("Sign in") }}'>
           </form>
       	</div>
@@ -33,20 +41,20 @@
 
       <div id="register" class="modalRegister modalDialog">
         <div>
-      		<a href="#close" title="Close" class="close">X</a>
+      		<a href="#" title="Close" class="close">X</a>
           <form method="post" action="/register">
             <h3>{{ __("Register") }}</h3>
             <label>{{ __("First name") }}</label>
-            <input name="firstname" type="text" value="John" onfocus="if (this.value == 'John') {this.value = '';}" onblur="if (this.value == '') {this.value = 'John';}"><br>
+            <input name="firstname" type="text" placeholder="John" required><br>
             <label>{{ __("Last name") }}</label>
-            <input name="lastname" type="text" value="Doe" onfocus="if (this.value == 'Doe') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Doe';}"><br>
+            <input name="lastname" type="text" placeholder="Doe" required><br>
             <label>{{ __("E-mail") }}</label>
-            <input name="emailReg" type="email" value="E-mail" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}"><br>
+            <input name="emailReg" type="email" placeholder="E-mail" required><br>
             <label>{{ __("Password") }}</label>
-            <input name="passwordReg" type="password" id="password" onchange="checkPassword()" value="Password"><br>
+            <input name="passwordReg" type="password" id="password" onchange="checkPassword()" placeholder="Password"><br>
             <label>{{ __("Repeat password") }}</label>
-            <input name="passwordRegRep" type="password" id="repeatPassword" onkeyup="checkPassword()" value="Password"><br>
-            By clicking Register you agree to our Terms and Conditions and our Privacy Policy.
+            <input name="passwordRegRep" type="password" id="repeatPassword" onkeyup="checkPassword()" placeholder="Password"><br>
+            {{ __("By clicking Register you agree to our Terms and Conditions and our Privacy Policy.") }}
             <input type="submit" value='{{ __("Register") }}'>
           </form>
       	</div>

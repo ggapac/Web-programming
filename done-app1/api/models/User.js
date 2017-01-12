@@ -29,7 +29,6 @@
      },
      password: {
        type: 'string',
-       minLength: 5,
        required: true
      },
      todos: {

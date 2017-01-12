@@ -212,3 +212,13 @@ input[type="submit"]{
     height: 500px;
   }
 }
+
+.errors {
+  background-color: #ac3a4a;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}

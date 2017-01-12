@@ -39,7 +39,6 @@ module.exports = {
 		});
 	},
 	changePreferences: function(req, res) {
-		sails.log(req.body.number);
 		User.update({
 			userid: req.session.userid
 		},
