@@ -16,15 +16,15 @@
       <nav>
         <a href="/"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
-          <li><a href="/">TO DOs</a></li>
-          <li><a href="/dones">DONEs</a></li>
-          <li><a href="/productivity">Productivity</a></li>
+          <li><a href="/">{{ __("TO DOs") }}</a></li>
+          <li><a href="/dones">{{ __("DONEs") }}</a></li>
+          <li><a href="/productivity">{{ __("Productivity") }}</a></li>
           <li class="drop">
             <input id="check02" type="checkbox" name="menu"/>
-            <label for="check02" id="active">Profile &#9662;</label>
+            <label for="check02" id="active">{{ __("Profile") }} &#9662;</label>
             <ul class="submenu">
-              <li><a href="/profile">View Profile</a></li>
-              <li><a href="/logout">Log out</a></li>
+              <li><a href="/profile">{{ __("View Profile") }}</a></li>
+              <li><a href="/logout">{{ __("Log out") }}</a></li>
             </ul>
           </li>
         </ul>
@@ -35,43 +35,43 @@
       <div>
         <a href="#" title="Close" class="close">X</a>
         <form id="editProfile" method="post" action="/editprofile">
-          <h3>Edit profile info</h3>
-          FIRST NAME: <input type="text" name="editfirstname" value="{{ user.firstname }}">
-          LAST NAME: <input type="text" name="editlastname" value="{{ user.lastname }}">
-          E-MAIL: <input type="email" name="editemail" value="{{ user.email }}">
-          <input type="submit" value="Save">
+          <h3>{{ __("Edit profile info") }}</h3>
+          {{ __("FIRST NAME") }}:<input type="text" name="editfirstname" value="{{ user.firstname }}">
+          {{ __("LAST NAME") }}:<input type="text" name="editlastname" value="{{ user.lastname }}">
+          {{ __("E-MAIL") }}:<input type="email" name="editemail" value="{{ user.email }}">
+          <input type="submit" value='{{ __("Save") }}'>
         </form>
       </div>
     </div>
 
     <div class="wrapper">
       <section class="infoCard">
-        <a class="edit" href="#editProfile">Edit</a>
-        <h3>INFO</h3>
+        <a class="edit" href="#editProfile">{{ __("Edit") }}</a>
+        <h3>{{ __("INFO") }}</h3>
         <div class="infoProfile">
           <table class="infoUser">
             <tr>
-              <th>FIRST NAME:</th>
+              <th>{{ __("FIRST NAME") }}:</th>
               <th>{{ user.firstname }}</th>
             </tr>
             <tr>
-              <th>LAST NAME:</th>
+              <th>{{ __("LAST NAME") }}:</th>
               <th>{{ user.lastname }}</th>
             </tr>
             <tr>
-              <th>E-MAIL:</th>
+              <th>{{ __("E-MAIL") }}:</th>
               <th>{{ user.email }}</th>
             </tr>
             <tr>
-              <th>PRODUCTIVITY POINTS:</th>
+              <th>{{ __("PRODUCTIVITY POINTS") }}:</th>
               <th>{{ user.productivitypts }}</th>
             </tr>
             <tr>
-              <th>NUMBER OF TO DOs:</th>
+              <th>{{ __("NUMBER OF TO DOs") }}:</th>
               <th>{{ user.todos }}</th>
             </tr>
             <tr>
-              <th>NUMBER OF DONEs:</th>
+              <th>{{ __("NUMBER OF DONEs") }}:</th>
               <th>{{ user.dones }}</th>
             </tr>
           </table>
@@ -81,32 +81,32 @@
       </section>
 
       <section class="infoCardPref">
-        <h3>PREFERENCES</h3>
+        <h3>{{ __("PREFERENCES") }}</h3>
         <div class="infoProfile">
           <div class="choice">
-            Let DONE pick daily tasks for you
+            {{ __("Let DONE pick daily tasks for you") }}
             <br>
-            Number of tasks per day:
+            <span>{{ __("Number of tasks per day:") }}<span>
+            <br>
             <select id="perday">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
+
+            {% for i in [0, 1, 2, 3, 4, 5, 6, 7, 8] %}
+              {% if i == user.tasksperday %}
+                <option value="{{ i }}" selected>{{ i }}</option>
+              {% else %}
+                <option value="{{ i }}">{{ i }}</option>
+              {% endif %}
+            {% endfor %}
             </select>
           </div>
         </div>
-        <a class="edit" id="savepref" href="#preferences" style="margin-top:-38px;">Save</a>
+        <a class="edit" id="savepref" href="#preferences" style="margin-top:-38px;">{{ __("Save") }}</a>
       </section>
     </div>
 
     <footer>
-      <p>© Copyright: 2016 All rights reserved |
-      Contact information: greta.gasparac@gmail.com</p>
+      <p>© Copyright: 2016 {{ __("All rights reserved") }} |
+      {{ __("Contact information") }}: greta.gasparac@gmail.com</p>
     </footer>
 
 

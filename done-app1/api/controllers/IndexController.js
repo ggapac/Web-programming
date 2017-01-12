@@ -26,7 +26,7 @@
 			}
       else {
         if (user.tasksperday == 0) {
-          return res.view('tasks', {tasks: user.tasks, tags: user.tags});
+          return res.view('tasks', {othertasks: user.tasks, tags: user.tags});
         }
         else {
           user.tasks.sort(function(a,b) {

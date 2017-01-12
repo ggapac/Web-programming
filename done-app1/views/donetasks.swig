@@ -16,15 +16,15 @@
       <nav>
         <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
-          <li><a href="/">TO DOs</a></li>
-          <li><a href="/dones" id="active">DONEs</a></li>
-          <li><a href="/productivity">Productivity</a></li>
+          <li><a href="/">{{ __("TO DOs") }}</a></li>
+          <li><a href="/dones" id="active">{{ __("DONEs") }}</a></li>
+          <li><a href="/productivity">{{ __("Productivity") }}</a></li>
           <li class="drop">
             <input id="check02" type="checkbox" name="menu"/>
-            <label for="check02">Profile &#9662;</label>
+            <label for="check02">{{ __("Profile") }} &#9662;</label>
             <ul class="submenu">
-              <li><a href="/profile">View Profile</a></li>
-              <li><a href="/logout">Log out</a></li>
+              <li><a href="/profile">{{ __("View Profile") }}</a></li>
+              <li><a href="/logout">{{ __("Log out") }}</a></li>
             </ul>
           </li>
         </ul>
@@ -34,11 +34,11 @@
     <div class="wrapper">
       <div class="tagsmobile">
         <label for="show-tags" class="show-tags">
-          TAGS &#9662;
+          {{ __("TAGS") }} &#9662;
         </label>
         <input class="hidecheckbox" type="checkbox" id="show-tags">
         <ul id="tags">
-          <li><input type="radio" name="tags" checked><span>All</span></li>
+          <li><input type="radio" name="tags" checked><span>{{ __("All") }}</span></li>
           {% for tag in tags %}
             <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
           {% endfor %}
@@ -47,9 +47,9 @@
 
 
       <aside class="tags">
-        <h3>TAGS</h3>
+        <h3>{{ __("TAGS") }}</h3>
         <ul>
-          <li><input type="radio" name="tags" checked><span>All</span></li>
+          <li><input type="radio" name="tags" checked><span>{{ __("All") }}</span></li>
           {% for tag in tags %}
             <li><input name="tags" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span></li>
           {% endfor %}
@@ -59,7 +59,7 @@
 
       <div id="ToDoInfo" class="modalDialog modalInfo">
         <div>
-          <a class = "edit" href="#edit">Edit</a>
+          <a class = "edit" href="#edit">{{ __("Edit") }}</a>
       		<a href="#close" title="Close" class="close">X</a>
           <form>
             <h3>TO DO NAME</h3>
@@ -74,15 +74,15 @@
 
       <div class="tasks">
         <section class="othertasks">
-          <h3>DONEs</h3>
+          <h3>{{ __("DONEs") }}</h3>
           <br>
           {% for task in tasks %}
             <div class="card p{{ task.priority }}" id="{{ task.taskid }}" data-tag="{{ task.tag }}" onclick="showInfo(this.id)">
               <a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>
               <div class="container ellipsis">
                 <b>{{ task.name }}</b>
-                <p>Priority rate: {{ task.priority }}</p>
-                <input name="done" type="checkbox">UNDONE
+                <p>{{ __("Priority rate") }}: {{ task.priority }}</p>
+                <input name="done" type="checkbox">{{ __("UNDONE") }}
               </div>
             </div>
           {% endfor %}
@@ -197,8 +197,8 @@
       </div>
     </div>
     <footer>
-      <p>© Copyright: 2016 All rights reserved |
-      Contact information: greta.gasparac@gmail.com</p>
+      <p>© Copyright: 2016 {{ __("All rights reserved") }} |
+      {{ __("Contact information") }}: greta.gasparac@gmail.com</p>
     </footer>
   </body>
 </html>
