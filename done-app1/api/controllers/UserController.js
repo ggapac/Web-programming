@@ -33,7 +33,6 @@ module.exports = {
             return res.redirect('/login');
 					}
 					req.session.userid = user[0].userid;
-
 					return res.redirect('/');
 				});
 			}

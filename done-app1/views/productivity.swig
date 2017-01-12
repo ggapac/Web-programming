@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/styles/app.css">
-    <script src="./js/productivity.js" defer></script>
+    <script type="text/javascript" src="./js/fusioncharts.js"></script>
+    <script type="text/javascript" src="./js/fusion.charts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="./js/productivity.js" defer></script>
     <title>DONE</title>
   </head>
 
@@ -58,12 +61,15 @@
       <section class="tasks">
         <h3>STATISTICS FOR CHOSEN TAGS:</h3>
         <br>
-        <div class="graph" id="graph">
+        <!--<div class="graph" id="graph">
           <noscript>
             <img src="./css/graph.png" style="width:100%, height=100%;" alt="">
           </noscript>
           <canvas id="myCanvas" width="600" height="350"></canvas>
         </div>
+        <br>
+        <br>-->
+        <div id="chart-container">FusionCharts will render here</div>
         <br>
         <br>
         <div class="statistics">

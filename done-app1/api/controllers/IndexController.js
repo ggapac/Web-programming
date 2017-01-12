@@ -25,7 +25,7 @@
 				sails.log("cannot find user");
 			}
       else {
-        message = "";
+        var message = "";
         if (req.session.message != null) {
           message = req.session.message;
           delete req.session.message;
@@ -76,10 +76,5 @@
         return res.view('donetasks', {tasks: user[0].tasks, tags: user[0].tags});
       }
     });
-  },
-  productivity: function (req, res) {
-    return res.view('productivity');
   }
-
-
  };

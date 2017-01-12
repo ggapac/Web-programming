@@ -680,3 +680,9 @@ header input[type=checkbox]:checked ~ nav > #menu {
   position: absolute;
   text-align: center;
 }
+
+#chart-container {
+  width: 80%;
+  height: 350px;
+  margin: 0 auto;
+}

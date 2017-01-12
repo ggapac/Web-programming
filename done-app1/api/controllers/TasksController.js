@@ -13,7 +13,7 @@ module.exports = {
 		var year = date.split(6,10);
 
 		//check date
-		
+
 
     var deadline = date.split(".").reverse().join("-");
 
@@ -52,11 +52,22 @@ module.exports = {
     })
   },
   taskDone: function(req, res) {
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth() + 1;
+		var year = today.getFullYear();
+
+		if (day < 10) day = '0' + day;
+		if (month < 10) month = '0' + month;
+
+		today = year + '-' + month + '-' + day;
+
     Tasks.update({
       taskid: req.body.id
     },
     {
-      status: 1
+      status: 1,
+			finished: today
     }).exec(function(err, updated) {
       if (err) {
         sails.log("Cannot update task, taskdone.");

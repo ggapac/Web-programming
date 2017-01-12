@@ -35,6 +35,7 @@ module.exports = {
 		    sails.log("Cannot update user");
 		    return;
 		  }
+			var admin = 0;
 		  return res.view('profile', {user: updated[0]});
 		});
 	},
@@ -49,7 +50,6 @@ module.exports = {
 				sails.log("Cannot update user preferences");
 			}
 			return res.view('profile', {user: updated[0], messages: ["Changes saved."]});
-			//return res.view('profile', {messages: ["Changes saved."], user: updated[0]});
 		});
 	}
 };

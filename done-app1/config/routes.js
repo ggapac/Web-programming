@@ -39,7 +39,7 @@ module.exports.routes = {
   'POST /register': 'UserController.register',
   'POST /newtag': 'TagsController.addTag',
   'GET /dones': 'IndexController.donetasks',
-  'GET /productivity': 'IndexController.productivity',
+  'GET /productivity': 'ProductivityController.productivity',
   'POST /editprofile': 'ProfileController.editProfile',
   'GET /profile': 'ProfileController.profile',
   'POST /newtask': 'TasksController.addTask',
@@ -47,7 +47,8 @@ module.exports.routes = {
   'POST /taskdone': 'TasksController.taskDone',
   'POST /dones/taskundone': 'TasksController.taskUndone',
   'POST /edittask': 'TasksController.editTask',
-  'POST /profile/preferences': 'ProfileController.changePreferences'
+  'POST /profile/preferences': 'ProfileController.changePreferences',
+  'GET /productivity/getdata': 'ProductivityController.getData'
 
   /***************************************************************************
   *                                                                          *
