@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node done-app1/test/travisTest.js"
+  }
+}
