@@ -62,7 +62,6 @@
 
       <div id="ToDoInfo" class="modalDialog modalInfo">
           <div>
-            <a class="edit" href="#edit" onclick="values()">{{ __("Edit") }}</a>
         		<a href="#close" title="Close" class="close">X</a>
             <h3>{{ __("TO DO NAME") }}</h3>
             <p class="infoDescription">Description description description description description description description description description.</p>

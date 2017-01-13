@@ -12,7 +12,7 @@
     <title>DONE</title>
   </head>
 
-  <body onresize="graph()">
+  <body>
     <header>
       <label for="show-menu" class="show-menu"><img src="/styles/done_logo.svg" class="logo1" height="50" width="130" alt=""/></label>
       <input type="checkbox" id="show-menu"/>
@@ -41,28 +41,25 @@
 
       <div class="tagsmobile">
         <label for="show-tags" class="show-tags">
-          {{ __("TAGS") }} &#9662;
+          {{ __("TIME PERIOD") }} &#9662;
         </label>
         <input class="hidecheckbox" type="checkbox" id="show-tags">
         <ul id="tags">
-          <li><input type="checkbox" checked>All</li>
-          <li><input type="checkbox">Home</li>
-          <li><input type="checkbox">Work</li>
+          <li><input type="radio" id="time0" name="timeperiod" checked><span>{{ __("All") }}</span></li>
+          <li><input type="radio" id="time0" name="timeperiod"><span>{{ __("Current month") }}</span></li>
         </ul>
       </div>
 
       <aside class="tags">
-        <h3>{{ __("TAGS") }}</h3>
+        <h3>{{ __("TIME PERIOD") }}</h3>
         <ul>
-          <li><input type="checkbox" checked>{{ __("All") }}</li>
-          {% for tag in tags %}
-            <li><input type="checkbox">{{ tag.name }}</li>
-          {% endfor %}
+          <li><input type="radio" id="time0" name="timeperiod" checked><span>{{ __("All") }}</span></li>
+          <li><input type="radio" id="time1" name="timeperiod"><span>{{ __("Current month") }}</span></li>
         </ul>
       </aside>
 
       <section class="tasks">
-        <h3>STATISTICS FOR CHOSEN TAGS:</h3>
+        <h3>{{ __("STATISTICS FOR CHOSEN TIME PERIOD") }}:</h3>
         <br>
         <!--<div class="graph" id="graph">
           <noscript>

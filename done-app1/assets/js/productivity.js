@@ -1,29 +1,51 @@
-document.addEventListener("DOMContentLoaded", getData())
+$(document).ready(function() {
+  getData();
+  checkTimePeriod();
+});
+
+function checkTimePeriod() {
+  $('input:radio[name=timeperiod]').change(function() {
+    var label = $(this).next('span').html();
+    if ($(this).attr('id') == "time0") getData();
+    else {
+      $.ajax({
+        type: "GET",
+        url: "/productivity/getmonthdata",
+        success: function(data) {
+          graphValues(data, function(values) {draw(values)});
+        }
+      })
+    }
+  });
+}
+
+function graphValues(data, callback) {
+  var x = [];
+  var y = [];
+  for (i = 0; i < data.tasks.length; i++) {
+    var finished = convertDate(new Date(Date.parse(data.tasks[i].finished)));
+    var ix = $.inArray(finished, x)
+    if (ix == -1) {
+      x.push(finished);
+      y.push(data.tasks[i].priority);
+    }
+    else {
+      y[ix] += data.tasks[i].priority;
+    }
+  }
+  var values = [];
+  for (i = 0; i < x.length; i++) {
+    values.push({label: x[i], value: y[i]});
+  }
+  callback(values);
+}
 
 function getData() {
   $.ajax({
     type: "GET",
     url: "/productivity/getdata",
     success: function(data) {
-      var x = [];
-      var y = [];
-      for (i = 0; i < data.tasks.length; i++) {
-        var finished = convertDate(new Date(Date.parse(data.tasks[i].finished)));
-        var ix = $.inArray(finished, x)
-        if (ix == -1) {
-          x.push(finished);
-          y.push(data.tasks[i].priority);
-        }
-        else {
-          y[ix] += data.tasks[i].priority;
-        }
-      }
-      var values = [];
-      for (i = 0; i < x.length; i++) {
-        values.push({label: x[i], value: y[i]});
-      }
-
-      draw(values);
+      graphValues(data, function(values) {draw(values)});
     }
   })
 }
@@ -74,70 +96,4 @@ function draw(values) {
 function convertDate(date) {
   function zeros(s) { return (s < 10) ? '0' + s : s; }
   return [zeros(date.getDate()), zeros(date.getMonth()+1), date.getFullYear()].join('.');
-}
-
-function graph() {
-  var x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-            21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-  var y = [5, 0, 4, 4, 1, 5, 5, 4, 5, 5, 1, 1, 4, 2, 4, 4, 1, 5, 3, 3, 2, 3, 1,
-            3, 2, 1, 1, 5, 4, 5];
-
-  var OFFSET = 20;
-  var canvas = document.getElementById("myCanvas");
-  var graphdiv = document.getElementById("graph");
-  var ctx = canvas.getContext("2d");
-
-  ctx.canvas.width = graphdiv.offsetWidth;
-  ctx.canvas.height = graphdiv.offsetHeight;
-
-  var width = ctx.canvas.width - OFFSET*2;
-  var height = ctx.canvas.height - OFFSET*2;
-
-  //max vrednost v podatkih
-  var max = Math.max.apply(Math, y);
-  //korak za x = celotna dolzina canvasa deljena s st elementov v x
-  var stepX = width/x.length;
-  //korak za y = celotna visina canvasa deljena z max vrednostjo
-  var stepY = height/max;
-
-
-
-  //axis y
-  ctx.beginPath();
-  ctx.strokeStyle = '#333333';
-  ctx.moveTo(OFFSET, 5);
-  ctx.lineTo(OFFSET, OFFSET + height);
-  ctx.stroke();
-
-  //axis x
-  ctx.beginPath();
-  ctx.strokeStyle = '#333333';
-  ctx.moveTo(OFFSET, OFFSET + height);
-  ctx.lineTo(width + OFFSET, OFFSET + height);
-  ctx.stroke();
-
-  for (var i = 1; i < x.length; i++) {
-    //izracunaj zacetne in koncne koordinate za crto
-    var x1 = OFFSET + i*stepX;
-    var x2 = OFFSET + (i+1)*stepX;
-    var y1 = OFFSET + height - Math.round(y[i-1]*stepY);
-    var y2 = OFFSET + height - Math.round(y[i]*stepY);
-    //risi crto
-    ctx.beginPath();
-    ctx.strokeStyle = '#c44354';
-    ctx.moveTo(x1,y1);
-    ctx.lineTo(x2,y2);
-    ctx.stroke();
-    //stevilke za os x
-    ctx.fillText(x[i-1], x1-2, height + OFFSET*1.5);
-    if (i == x.length-1) {
-      ctx.fillText(x[i], x2-2, height + OFFSET*1.5);
-    }
-  }
-
-  //stevilke za os y
-  for (var i = 1; i <= max; i++) {
-    var y1 = OFFSET + height - i*stepY;
-    ctx.fillText(i, 5, y1);
-  }
 }

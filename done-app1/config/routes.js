@@ -49,6 +49,7 @@ module.exports.routes = {
   'POST /edittask': 'TasksController.editTask',
   'POST /profile/preferences': 'ProfileController.changePreferences',
   'GET /productivity/getdata': 'ProductivityController.getData',
+  'GET /productivity/getmonthdata': 'ProductivityController.getMonthData',
   'GET /admin': 'AdminController.adminPanel'
 
   /***************************************************************************
