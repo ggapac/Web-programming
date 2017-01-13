@@ -4,4 +4,4 @@ node_js:
 before_deploy:
   - cd done-app1
 script:
-  ./done-app1/test/travisTest.js
+  sudo ./done-app1/test/travisTest.js
