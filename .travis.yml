@@ -4,4 +4,4 @@ node_js:
 before_deploy:
   - cd done-app1
 script:
-  ./test/travisTest.js
+  ./done-app1/test/travisTest.js
