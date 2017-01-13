@@ -3,5 +3,3 @@ node_js:
   - 6
 before_deploy:
   - cd done-app1
-script:
-  sudo ./done-app1/test/travisTest.js
