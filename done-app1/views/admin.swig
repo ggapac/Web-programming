@@ -37,36 +37,24 @@
     </header>
 
     <div class="wrapper">
-      <h3>USERS: 2</h3>
+      <h3>{{ __("USERS") }}: {{ users.length }}</h3>
 
       <table class="users">
         <thead>
           <tr>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>E-mail</td>
-            <td>TO DOs</td>
-            <td>DONEs</td>
-            <td>Join date</td>
+            <td>{{ __("First name") }}</td>
+            <td>{{ __("Last name") }}</td>
+            <td>{{ __("E-mail") }}</td>
+            <td>{{ __("Register date") }}</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Greta</td>
-            <td>Gasparac</td>
-            <td>greta.gasparac@gmail.com</td>
-            <td>12</td>
-            <td>10</td>
-            <td>12.01.2017</td>
-          </tr>
-          <tr>
-            <td>Greta</td>
-            <td>Gasparac</td>
-            <td>greta.gasparac@gmail.com</td>
-            <td>12</td>
-            <td>10</td>
-            <td>12.01.2017</td>
-          </tr>
+          {% for user in users %}
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.createdAt }}</td>
+          {% endfor %}
         </tbody>
       </table>
     </div>

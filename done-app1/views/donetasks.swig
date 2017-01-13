@@ -14,7 +14,7 @@
       <label for="show-menu" class="show-menu"><img src="/styles/done_logo.svg" class="logo1" height="50" width="130" alt=""/></label>
       <input type="checkbox" id="show-menu">
       <nav>
-        <a href="tasks.html"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
+        <a href="/"><img src="/styles/done_logo.svg" class="logo" height="50" width="130" alt=""/></a>
         <ul id="menu">
           <li><a href="/">{{ __("TO DOs") }}</a></li>
           <li><a href="/dones" id="active">{{ __("DONEs") }}</a></li>
@@ -24,6 +24,9 @@
             <label for="check02">{{ __("Profile") }} &#9662;</label>
             <ul class="submenu">
               <li><a href="/profile">{{ __("View Profile") }}</a></li>
+              {% if admin == 1 %}
+                <li><a href="/admin">{{ __("Admin") }}</a></li>
+              {% endif %}
               <li><a href="/logout">{{ __("Log out") }}</a></li>
             </ul>
           </li>

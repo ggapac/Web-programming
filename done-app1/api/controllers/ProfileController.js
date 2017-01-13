@@ -18,7 +18,7 @@ module.exports = {
 				sails.log("cannot find user");
 			}
       else {
-        return res.view('profile', {user: user[0]});
+        return res.view('profile', {user: user[0], admin: req.session.admin});
       }
     });
   },
@@ -36,7 +36,7 @@ module.exports = {
 		    return;
 		  }
 			var admin = 0;
-		  return res.view('profile', {user: updated[0]});
+		  return res.view('profile', {user: updated[0], admin: req.session.admin});
 		});
 	},
 	changePreferences: function(req, res) {
@@ -49,7 +49,7 @@ module.exports = {
 			if (err) {
 				sails.log("Cannot update user preferences");
 			}
-			return res.view('profile', {user: updated[0], messages: ["Changes saved."]});
+			return res.view('profile', {user: updated[0], messages: ["Changes saved."], admin: req.session.admin});
 		});
 	}
 };

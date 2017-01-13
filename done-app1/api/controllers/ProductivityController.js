@@ -7,7 +7,7 @@
 
 module.exports = {
 	productivity: function (req, res) {
-		return res.view('productivity');
+		return res.view('productivity', {admin: req.session.admin});
   },
 	getData: function (req, res) {
 		User.findOne({
@@ -28,7 +28,7 @@ module.exports = {
 				user.tasks.sort(function(a,b) {
 					return (new Date(a.finished).getTime() - new Date(b.finished).getTime())
 				});
-        return res.send({tasks: user.tasks});
+        return res.send({tasks: user.tasks, admin: req.session.admin});
       }
     });
 	}

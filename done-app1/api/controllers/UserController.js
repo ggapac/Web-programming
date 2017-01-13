@@ -33,6 +33,7 @@ module.exports = {
             return res.redirect('/login');
 					}
 					req.session.userid = user[0].userid;
+          req.session.admin = user[0].admin;
 					return res.redirect('/');
 				});
 			}
@@ -85,7 +86,7 @@ module.exports = {
     if (req.session.message != null) {
       message = req.session.message;
       delete req.session.message;
-      return res.view('homepage', {messages: message});
+      return res.view('homepage', {messages: message, admin: req.session.admin});
     }
 		return res.view('homepage');
 	}

@@ -52,5 +52,8 @@
   "Last name": "Last name",
   "E-mail": "E-mail",
   "Repeat password": "Repeat password",
-  "By clicking Register you agree to our Terms and Conditions and our Privacy Policy.": "By clicking Register you agree to our Terms and Conditions and our Privacy Policy."
+  "By clicking Register you agree to our Terms and Conditions and our Privacy Policy.": "By clicking Register you agree to our Terms and Conditions and our Privacy Policy.",
+	"USERS": "USERS",
+  "Register date": "Register date",
+	"Admin": "Admin"
 }

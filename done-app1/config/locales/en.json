@@ -50,5 +50,8 @@
   "Last name": "Priimek",
   "E-mail": "E-mail",
   "Repeat password": "Ponovno vpišite geslo",
-  "By clicking Register you agree to our Terms and Conditions and our Privacy Policy.": "S klikom na Registracija se strinjate z našimi pogoji uporabe in politiko zasebnosti."
+  "By clicking Register you agree to our Terms and Conditions and our Privacy Policy.": "S klikom na Registracija se strinjate z našimi pogoji uporabe in politiko zasebnosti.",
+  "USERS": "UPORABNIKI",
+  "Register date": "Datum registracije",
+  "Admin": "Administrator"
 }

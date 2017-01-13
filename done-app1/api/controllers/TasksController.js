@@ -13,12 +13,7 @@ module.exports = {
 		var year = date.split(6,10);
 
 		//check date
-
-
     var deadline = date.split(".").reverse().join("-");
-
-
-
 
     Tasks.create({
       name: req.body.taskname,

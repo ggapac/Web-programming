@@ -30,6 +30,7 @@
             <label for="check02" id="active">{{ __("Profile") }} &#9662;</label>
             <ul class="submenu">
               <li><a href="/profile">{{ __("View Profile") }}</a></li>
+              <li><a href="/admin">{{ __("Admin") }}</a></li>
               <li><a href="/logout">{{ __("Log out") }}</a></li>
             </ul>
           </li>

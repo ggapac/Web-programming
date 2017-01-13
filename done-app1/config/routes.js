@@ -48,7 +48,8 @@ module.exports.routes = {
   'POST /dones/taskundone': 'TasksController.taskUndone',
   'POST /edittask': 'TasksController.editTask',
   'POST /profile/preferences': 'ProfileController.changePreferences',
-  'GET /productivity/getdata': 'ProductivityController.getData'
+  'GET /productivity/getdata': 'ProductivityController.getData',
+  'GET /admin': 'AdminController.adminPanel'
 
   /***************************************************************************
   *                                                                          *

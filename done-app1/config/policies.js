@@ -31,6 +31,10 @@ module.exports.policies = {
     'authenticate': 'getLogin',
     'getLogin': 'getLogin',
     'register': 'getLogin'
+  },
+
+  'AdminController': {
+    '*': 'admin'
   }
 
 
