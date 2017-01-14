@@ -8,7 +8,7 @@
 module.exports = {
 	/**
 	 * @api {get} /admin Open Admin panel
-	 * @apiName New Tag
+	 * @apiName Open Admin panel
 	 * @apiDescription Opens Admin panel, where Admin can see all the Users.
 	 * @apiGroup Admin
 	 * @apiPermission admin

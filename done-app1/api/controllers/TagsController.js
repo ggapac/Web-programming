@@ -9,7 +9,7 @@
 
 module.exports = {
 	/**
-	 * @api {POST} /newtag Create a new Tag
+	 * @api {POST} /newtag Add Tag
 	 * @apiName New Tag
 	 * @apiDescription Creates a new tag for the User.
 	 * @apiGroup Tags
