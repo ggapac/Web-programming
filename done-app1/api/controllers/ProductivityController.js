@@ -27,7 +27,7 @@ module.exports = {
 				user.tasks.sort(function(a,b) {
 					return (new Date(a.finished).getTime() - new Date(b.finished).getTime())
 				});
-        return res.send({tasks: user.tasks, admin: req.session.admin});
+        return res.send({user: user, tasks: user.tasks, admin: req.session.admin});
       }
     });
 	},
@@ -52,7 +52,7 @@ module.exports = {
 				user.tasks.sort(function(a,b) {
 					return (new Date(a.finished).getTime() - new Date(b.finished).getTime())
 				});
-        return res.send({tasks: user.tasks, admin: req.session.admin});
+        return res.send({user: user, tasks: user.tasks, admin: req.session.admin});
       }
     });
 

@@ -45,6 +45,8 @@ function getData() {
     type: "GET",
     url: "/productivity/getdata",
     success: function(data) {
+      $('#todos').html(data.user.todos);
+      $('#dones').html(data.user.dones);
       graphValues(data, function(values) {draw(values)});
     }
   })

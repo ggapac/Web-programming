@@ -40,11 +40,11 @@ function showInfo(id) {
       $('#ToDoInfo').attr('taskid', data.task.taskid);
       $('#ToDoInfo').attr('onClick','editTask(' + data.task.taskid + ')');
       var deadline = convertDate(new Date(Date.parse(data.task.deadline)));
-      
+
       $('.infoDescription').html(data.task.description);
-      $('.infoDeadline').append(deadline);
-      $('.infoPriority').append(data.task.priority);
-      $('.infoTags').append(data.tag.name)
+      $('#iDeadline').html(deadline);
+      $('#iPriority').html(data.task.priority);
+      $('#iTags').html(data.tag.name)
     }
   });
 }

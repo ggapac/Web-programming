@@ -76,11 +76,11 @@
           <table>
             <tr>
               <td>{{ __("NUMBER OF TO DOs") }}:</td>
-              <td>6</td>
+              <td id="todos"></td>
             </tr>
             <tr>
               <td>{{ __("NUMBER OF DONEs") }}:</td>
-              <td>50</td>
+              <td id="dones"></td>
             </tr>
           </table>
         </div>

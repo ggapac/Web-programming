@@ -117,12 +117,12 @@
       <div id="ToDoInfo" class="modalDialog modalInfo">
           <div>
             <a class="edit" href="#edit" onclick="values()">{{ __("Edit") }}</a>
-        		<a href="#close" title="Close" class="close">X</a>
+        		<a href="#" title="Close" class="close">X</a>
             <h3>{{ __("TO DO NAME") }}</h3>
-            <p class="infoDescription">Description description description description description description description description description.</p>
-            <p class="infoDeadline">{{ __("Deadline") }}: </p>
-            <p class="infoPriority">{{ __("Priority rate") }}: </p>
-            <p class="infoTags">{{ __("Tags") }}: </p>
+            <p class="infoDescription"></p>
+            <p class="infoDeadline">{{ __("Deadline") }}: <span id="iDeadline"><span></p>
+            <p class="infoPriority">{{ __("Priority rate") }}: <span id="iPriority"><span></p>
+            <p class="infoTags">{{ __("Tags") }}: <span id="iTags"><span></p>
         	</div>
       </div>
       <div id="edit" class="modalDialog">
