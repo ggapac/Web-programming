@@ -1,11 +1,12 @@
-var sailsConstructor = require('sails').constructor;
-var sails = new sailsConstructor();
+var Sails = require('sails').constructor;
+var mySailsApp = new Sails();
 
-sails.lift({
+mySailsApp.lift({
   port: 1337
 }, function(err) {
   if (err) {
-    throw err;
+     console.error('Failed to lift app.  Details:', err);
+     throw err;
   }
-  sails.lower();
+  mySailsApp.lower();
 });
