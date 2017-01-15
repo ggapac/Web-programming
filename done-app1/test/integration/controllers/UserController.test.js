@@ -6,7 +6,7 @@ describe('UserController', function() {
     it('should redirect to /', function(done) {
       request(sails.hooks.http.app)
         .post('/login')
-        .send({email: 'g@g', password: 'password'})
+        .send({email: 'g@g.com', password: 'password'})
         .expect(302)
         .expect('location', '/', done);
     });

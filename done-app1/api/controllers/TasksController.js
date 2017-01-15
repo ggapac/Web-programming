@@ -122,7 +122,7 @@ module.exports = {
 				return res.redirect('/');
       }
 			sails.log.info("Successfully added new task, taskid: " + task.taskid);
-      return res.send({task: task});
+			return res.redirect('back');
     });
   },
 	/**

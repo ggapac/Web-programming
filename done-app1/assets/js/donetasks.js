@@ -8,7 +8,7 @@ function tasksByTags() {
     var label = $(this).next('span').html();
     var id = $(this)[0].id;
 
-    if (label != "All") {
+    if (label != "All" && label != "Vsi") {
       $('.othertasks > .card').hide();
       $(".othertasks > [data-tag='" + id + "']").show();
     }

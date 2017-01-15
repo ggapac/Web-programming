@@ -8,7 +8,7 @@ function tasksByTags() {
     var label = $(this).next('span').html();
     var id = $(this)[0].id;
 
-    if (label != "All") {
+    if (label != "All" && label != "Vsi") {
       $('.othertasks > .card').hide();
       $(".othertasks > [data-tag='" + id + "']").show();
     }
@@ -103,18 +103,7 @@ function newTask() {
         }, 4000);
       }
       else {
-        var tasks = $('.othertasks');
-        console.log(data.task.priority);
-        console.log(data.task.taskid);
-        console.log(data.task.tag);
-        console.log(data.task.name);
-        //NE DELAAAAA
-        tasks.innerHTML += '<div class="card p' + data.task.priority + '" id="' + data.task.taskid + '" '
-                        +  'data-tag="' + data.task.tag + '" onclick="showInfo(this.id)">'
-                        +  '<a href="#ToDoInfo" style="color:#333333; font-size:20px;"> &#9700;</a>'
-                        +  '<div class="container ellipsis"><b>' + data.task.name + '</b><p>Priority rate: '
-                        +  data.task.priority + '</p><input name="done" type="checkbox">DONE'
-                        +  '</div></div>';
+        window.location.reload();
       }
 
     }
