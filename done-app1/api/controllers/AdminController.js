@@ -23,10 +23,10 @@ module.exports = {
 			}
 			for (i = 0; i < users.length; i++) {
 				var date = users[i].createdAt;
-				users[i].createdAt = zeros(date.getDay()) + "." + zeros((date.getMonth() + 1)) + "." + date.getFullYear();
+				users[i].createdAt = zeros(date.getDate()) + "." + zeros((date.getMonth() + 1)) + "." + date.getFullYear();
 			}
 			sails.log.info("Successfully found all users for admin panel.");
-			return res.view('admin', {users: users});
+			return res.view('admin', {users: users, admin: req.session.admin});
 		})
 	}
 };

@@ -27,7 +27,7 @@
             <ul class="submenu">
               <li><a href="/profile">{{ __("View Profile") }}</a></li>
               {% if admin == 1 %}
-                <li><a href="/admin">{{ __("Admin panel") }}</a></li>
+                <li><a href="/admin">{{ __("Admin") }}</a></li>
               {% endif %}
               <li><a href="/logout">{{ __("Log out") }}</a></li>
             </ul>
@@ -50,10 +50,12 @@
         </thead>
         <tbody>
           {% for user in users %}
+          <tr>
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.createdAt }}</td>
+          </tr>
           {% endfor %}
         </tbody>
       </table>
