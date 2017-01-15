@@ -12,9 +12,9 @@
 
   <body>
     <div class="errors">
-      {% for m in messages %}
-        <p>{{ m }}</p>
-      {% endfor %}
+      {% if messages.length > 0 %}
+        {{ __(messages[0]) }}
+      {% endif %}
     </div>
     <header>
       <label for="show-menu" class="show-menu"><img src="/styles/done_logo.svg" class="logo1" height="50" width="130" alt=""/></label>
@@ -88,26 +88,28 @@
       </section>
 
       <section class="infoCardPref">
-        <h3>{{ __("PREFERENCES") }}</h3>
-        <div class="infoProfile">
-          <div class="choice">
-            {{ __("Let DONE pick daily tasks for you") }}
-            <br>
-            <span>{{ __("Number of tasks per day:") }}<span>
-            <br>
-            <select id="perday">
+        <form method="post" action="/profile/preferences">
+          <h3>{{ __("PREFERENCES") }}</h3>
+          <div class="infoProfile">
+            <div class="choice">
+              {{ __("Let DONE pick daily tasks for you") }}
+              <br>
+              <span>{{ __("Number of tasks per day:") }}<span>
+              <br>
+              <select name="number" id="perday">
 
-            {% for i in [0, 1, 2, 3, 4, 5, 6, 7, 8] %}
-              {% if i == user.tasksperday %}
-                <option value="{{ i }}" selected>{{ i }}</option>
-              {% else %}
-                <option value="{{ i }}">{{ i }}</option>
-              {% endif %}
-            {% endfor %}
-            </select>
+              {% for i in [0, 1, 2, 3, 4, 5, 6, 7, 8] %}
+                {% if i == user.tasksperday %}
+                  <option value="{{ i }}" selected>{{ i }}</option>
+                {% else %}
+                  <option value="{{ i }}">{{ i }}</option>
+                {% endif %}
+              {% endfor %}
+              </select>
+            </div>
           </div>
-        </div>
-        <a class="edit" id="savepref" href="#preferences" style="margin-top:-38px;">{{ __("Save") }}</a>
+          <button class="edit" type="submit">{{ __("Save") }}</button>
+        </form>
       </section>
     </div>
 

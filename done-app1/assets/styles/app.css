@@ -355,7 +355,7 @@ input[type="checkbox"]:checked ~ div, .pick:target {
 }
 
 .choice {
-  height:50px;
+  height:70px;
 }
 
 .choice input[type="text"] {

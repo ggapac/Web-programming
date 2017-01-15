@@ -15,24 +15,28 @@ module.exports = {
 	 * @apiParam {Integer} userid Id of the User.
 	 */
 	profile: function (req, res) {
-    User.find({
+    User.findOne({
 			userid: req.session.userid
 		})
     .exec(function(err, user) {
-			var message = null;
+			var message = "";
+			if (req.session.message != null) {
+				message = req.session.message;
+				delete req.session.message;
+			}
       if (err) {
-				message = ["Error 500: cannot find user."];
+				message = "Error 500: cannot find user.";
 				sails.log.error("Profile: cannot find user, error: " + err);
-				return res.view('profile', {user: user[0], admin: req.session.admin, messages: message});
+				return res.view('profile', {user: user, admin: req.session.admin, messages: message});
 			}
       if (user.length == 0) {
-				message = ["Error 500: cannot find user."];
+				message = "Error 500: cannot find user.";
 				sails.log.warn("Profile: cannot find user.");
 			}
       else {
 				sails.log.info("Successfully shown profile page.");
       }
-			return res.view('profile', {user: user[0], admin: req.session.admin, messages: message});
+			return res.view('profile', {user: user, admin: req.session.admin, messages: [message]});
     });
   },
 	/**
@@ -56,12 +60,13 @@ module.exports = {
 			email: req.body.editemail
 		}).exec(function afterwards(err, updated) {
 		  if (err) {
-				message = ["Error 500: cannot find user."];
+				req.session.message = ["Error 500: cannot find user."];
 		    sails.log.error("Edit profile: cannot update user, error: " + err);
-				return res.view('profile', {user: updated[0], admin: req.session.admin, messages: message});
 		  }
-			sails.log.info("Successfully edited user profile.");
-		  return res.view('profile', {user: updated[0], admin: req.session.admin});
+			else {
+				sails.log.info("Successfully edited user profile.");
+			}
+		  return res.redirect('/profile');
 		});
 	},
 	/**
@@ -82,14 +87,14 @@ module.exports = {
 		}).exec(function(err, updated) {
 			var message = ""
 			if (err) {
-				message = ["Error 500: cannot find user."];
+				req.session.message = "Error 500: cannot find user.";
 				sails.log.error("Change preferences: cannot update user preferences, error: " + err);
 			}
 			else {
-				message = ["Changes saved."];
+				req.session.message = "Changes saved.";
 				sails.log.info("Successfully changed user preferences.");
 			}
-			return res.view('profile', {user: updated[0], messages: message, admin: req.session.admin});
+			return res.redirect('/profile');
 		});
 	}
 };

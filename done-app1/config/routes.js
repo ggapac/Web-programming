@@ -33,6 +33,13 @@ module.exports.routes = {
   ***************************************************************************/
 
   'GET /': 'TasksController.index',
+  'GET /dones': 'TasksController.donetasks',
+  'POST /newtask': 'TasksController.addTask',
+  'GET /task/:id': 'TasksController.taskInfo',
+  'POST /taskdone': 'TasksController.taskDone',
+  'POST /dones/taskundone': 'TasksController.taskUndone',
+  'POST /edittask': 'TasksController.editTask',
+
   'POST /login': 'UserController.authenticate',
   'GET /login': "UserController.getLogin",
   'GET /logout': 'UserController.logout',
@@ -40,20 +47,14 @@ module.exports.routes = {
 
   'POST /newtag': 'TagsController.addTag',
 
-  'GET /dones': 'TasksController.donetasks',
   'GET /productivity': 'ProductivityController.productivity',
-  'POST /editprofile': 'ProfileController.editProfile',
-  'GET /profile': 'ProfileController.profile',
-
-  'POST /newtask': 'TasksController.addTask',
-  'GET /task/:id': 'TasksController.taskInfo',
-  'POST /taskdone': 'TasksController.taskDone',
-  'POST /dones/taskundone': 'TasksController.taskUndone',
-  'POST /edittask': 'TasksController.editTask',
-
-  'POST /profile/preferences': 'ProfileController.changePreferences',
   'GET /productivity/getdata': 'ProductivityController.getData',
   'GET /productivity/getmonthdata': 'ProductivityController.getMonthData',
+
+  'POST /editprofile': 'ProfileController.editProfile',
+  'GET /profile': 'ProfileController.profile',
+  'POST /profile/preferences': 'ProfileController.changePreferences',
+
   'GET /admin': 'AdminController.adminPanel'
 
   /***************************************************************************

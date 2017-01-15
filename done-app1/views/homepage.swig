@@ -13,7 +13,7 @@
   <body>
     <div class="errors">
       {% for m in messages %}
-        <p>{{ m }}</p>
+        <p>{{ __(m) }}</p>
       {% endfor %}
     </div>
     <header class="centered-content">

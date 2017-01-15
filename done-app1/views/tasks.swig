@@ -14,9 +14,9 @@
 
   <body>
     <div class="errors">
-      {% for m in messages %}
-        <p>{{ m }}</p>
-      {% endfor %}
+      {% if messages.length > 0 %}
+        {{ __(messages[0]) }}
+      {% endif %}
     </div>
     <header>
       <label for="show-menu" class="show-menu">
@@ -105,7 +105,11 @@
             {{ __("Tags") }}:
             <div class="tagsForNewToDo">
               {% for tag in tags %}
-                <input name="t" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span>
+                {% if loop.first %}
+                  <input name="t" id="{{ tag.tagid }}" type="radio" checked><span>{{ tag.name }}</span>
+                {% else %}
+                  <input name="t" id="{{ tag.tagid }}" type="radio"><span>{{ tag.name }}</span>
+                {% endif %}
                 <br>
               {% endfor %}
             </div>

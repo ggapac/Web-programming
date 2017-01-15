@@ -56,7 +56,7 @@ module.exports = {
             if (new Date(a.deadline) == new Date(b.deadline)) {
               return (b.priority - a.priority);
             }
-          })
+          });
 
           if (user.tasks.length <= user.tasksperday) {
 						sails.log.info("Successfully shown tasks page.");
@@ -101,7 +101,11 @@ module.exports = {
 		var month = date.split(3,5);
 		var year = date.split(6,10);
 
-		//check date
+		if (!checkDate(date)) {
+			sails.log.warn("Add task: date format is incorrect.");
+			req.session.message = ["Date is incorrect."];
+			return res.send({message: req.session.message});
+		}
     var deadline = date.split(".").reverse().join("-");
 
     Tasks.create({
@@ -150,7 +154,7 @@ module.exports = {
 				sails.log.info("Successfully sent task info");
         res.send({task: task, tag: tag});
       });
-    })
+    });
   },
 	/**
 	 * @api {post} /taskdone Task status - Completed
@@ -227,11 +231,19 @@ module.exports = {
 	 * @apiParam {Integer} priority Priority rate of the Task.
 	 */
 	editTask: function(req, res) {
-		//TODO: check dates for deadline
-
-
 		var date = req.body.editdeadline;
+		var day = date.substring(0,2);
+		var month = date.split(3,5);
+		var year = date.split(6,10);
+
+		if (!checkDate(date)) {
+			sails.log.warn("Add task: date format is incorrect.");
+			req.session.message = ["Date is incorrect."];
+			//return res.send({message: req.session.message});
+			return res.redirect('/');
+		}
     var deadline = date.split(".").reverse().join("-");
+
 		Tasks.update({
 			taskid: req.body.taskid
 		}, {
@@ -249,7 +261,7 @@ module.exports = {
 				sails.log.info("Succesfully edited task, taskid: " + req.body.taskid);
 			}
 			return res.redirect('/');
-		})
+		});
 	},
 	/**
 	 * @api {get} /dones Tasks page - DONEs
@@ -273,18 +285,44 @@ module.exports = {
       if (err) {
 				message = ["Error 500: cannot find user."];
 				sails.log.error("Donetasks: cannot find user, error: " + err);
-				return res.view('donetasks', {messages: message})
+				return res.view('donetasks', {messages: message});
 			}
       if (user.length == 0) {
 				message = ["Error 500: cannot find user."];
 				sails.log.warn("Donetasks: Cannot find user");
-				return res.view('donetasks', {messages: message})
+				return res.view('donetasks', {messages: message});
 			}
       else {
-				sails.log.info("Succesfully shown donetasks page."),
+				sails.log.info("Successfully shown donetasks page.");
 			}
       return res.view('donetasks', {tasks: user[0].tasks, tags: user[0].tags, admin: req.session.admin});
     });
   }
 
 };
+
+function checkDate(date) {
+	function zeros(s) { return (s < 10) ? '0' + s : s; }
+	if (/^\d{1,2}\.\d{1,2}\.\d{4}$/.test(date)) {
+		var dmy = date.split(".");
+		var day = parseInt(dmy[0], 10);
+		var month = parseInt(dmy[1], 10);
+		var year = parseInt(dmy[2], 10);
+
+		if (year < new Date().getFullYear()) {
+			return false;
+		}
+		if ((year == new Date().getFullYear()) && (month == (new Date().getMonth() +1)) && (day < new Date().getDay())) {
+			return false;
+		}
+
+		var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+		// leap year
+		if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+			monthLength[1] = 29;
+		}
+		return day > 0 && day <= monthLength[month - 1];
+	}
+	return false;
+}

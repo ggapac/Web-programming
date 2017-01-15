@@ -56,5 +56,9 @@
   "Admin": "Administrator",
   "STATISTICS FOR CHOSEN TIME PERIOD": "Statistika za izbrano časovno obdobje",
   "Current month": "Tekoči mesec",
-  "TIME PERIOD": "Časovno obdobje"
+  "TIME PERIOD": "Časovno obdobje",
+  "Changes saved.": "Spremembe shranjene.",
+  "Date is incorrect.": "Datum je nepravilen.",
+  "Incorrect e-mail or password.": "Napačen e-mail naslov ali geslo.",
+  "Tag already exists.": "Značka že obstaja."
 }

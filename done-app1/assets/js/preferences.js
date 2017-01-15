@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   $("#savepref").click(changePreferences);
 });
 
@@ -11,4 +11,4 @@ function changePreferences(e) {
     url: "profile/preferences",
     data: {number: num}
   })
-}
+}*/

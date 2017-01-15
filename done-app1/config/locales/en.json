@@ -58,5 +58,9 @@
 	"Admin": "Admin",
 	"STATISTICS FOR CHOSEN TIME PERIOD": "STATISTICS FOR CHOSEN TIME PERIOD",
 	"Current month": "Current month",
-	"TIME PERIOD": "TIME PERIOD"
+	"TIME PERIOD": "TIME PERIOD",
+	"Changes saved.": "Changes saved.",
+	"Date is incorrect.": "Date is incorrect.",
+	"Incorrect e-mail or password.": "Incorrect e-mail or password.",
+	"Tag already exists.": "Tag already exists."
 }
