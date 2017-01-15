@@ -1,3 +1,11 @@
-var assert = require('assert');
+var sailsConstructor = require('sails').constructor;
+var sails = new sailsConstructor();
 
-assert.equal(-1, [1, 2, 3].indexOf(4));
+sails.lift({
+  port: 1337
+}, function(err) {
+  if (err) {
+    throw err;
+  }
+  sails.lower();
+});

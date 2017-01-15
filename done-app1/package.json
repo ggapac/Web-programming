@@ -38,5 +38,11 @@
     "url": "git://github.com/gretagasparac/done-app1.git"
   },
   "author": "gretagasparac",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "grunt-mocha-test": "^0.13.2",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
 }
