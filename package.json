@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "sails": "~0.12.11",
-  }
+  },
   "scripts": {
     "test": "node done-app1/test/travisTest.js"
   }
