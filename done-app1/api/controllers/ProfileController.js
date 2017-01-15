@@ -51,6 +51,13 @@ module.exports = {
 	 * @apiParam {String} email E-mail of the User.
 	 */
 	editProfile: function(req, res) {
+		var reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		if (!reg.test(req.body.editemail)) {
+			req.session.message = ["E-mail structure is incorrect."];
+			sails.log.warn("Register: e-mail structure is incorrect.");
+			return res.redirect('/profile');
+		}
+		
 		User.update({
 			userid: req.session.userid
 		},

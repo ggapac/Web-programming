@@ -51,9 +51,9 @@
             <label>{{ __("E-mail") }}</label>
             <input name="emailReg" type="email" placeholder="E-mail" required><br>
             <label>{{ __("Password") }}</label>
-            <input name="passwordReg" type="password" id="password" onchange="checkPassword()" placeholder="Password"><br>
+            <input name="passwordReg" type="password" id="password" onchange="checkPassword()" placeholder="Password" required><br>
             <label>{{ __("Repeat password") }}</label>
-            <input name="passwordRegRep" type="password" id="repeatPassword" onkeyup="checkPassword()" placeholder="Password"><br>
+            <input name="passwordRegRep" type="password" id="repeatPassword" onkeyup="checkPassword()" placeholder="Password" required><br>
             {{ __("By clicking Register you agree to our Terms and Conditions and our Privacy Policy.") }}
             <input type="submit" value='{{ __("Register") }}'>
           </form>

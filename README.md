@@ -4,9 +4,9 @@
 #### Description
 This app is perfect for people who are longing for a more organized and productive life.
 
-The users log in and are able to add tasks and give each task a priority from 1 to 5 (5 being the highest). Each task will have its deadline and the app can remind the user about it. It can also choose N (user defined) most important tasks every day that the user has to complete. The user is able to make task tags and give one or more tags to each task.
+The users log in and are able to add tasks and give each task a priority from 1 to 5 (5 being the highest). Each task will have its deadline and the app can remind the user about it. It can also choose N (user defined) most important tasks every day that the user has to complete. The user is able to make task tags and give a tag to each task.
 
-This is a web application, which means that it can be accessed by every device supporting HTML5.
+This is a web application, which means that it can be accessed by every device supporting HTML5 (smart phones, tablets, computers ...).
 
 #### Browser compatibility
 The app was tested in Chrome, Mozilla Firefox and Opera. It works good on every browser, but if one looks very carefully, some minor differences in design can be spotted. One thing that stands out is input type date. It works only in Chrome, other browsers just show it as a normal textfield. That does not really affect the performance, but I need to be careful about it in the second part of the project.
